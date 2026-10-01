@@ -1,0 +1,65 @@
+{
+  "features": [
+    {
+      "id": "static-question-practice",
+      "name": "Simple static question practice",
+      "description": "Traditional Chinese, elderly-friendly one-question practice using the 60-row source dataset and original assets.",
+      "dependencies": [],
+      "status": "done",
+      "acceptance_criteria": [
+        "Original source content and provenance retained",
+        "Immediate locked answers and explanations",
+        "Static GitHub Pages export with dynamic repository paths"
+      ],
+      "evidence": "Implemented at cf7bfca; rename asset-path fix c532176. Dataset, ordering and export checks rerun by the harness verification."
+    },
+    {
+      "id": "local-progress-review",
+      "name": "Local progress, wrong-answer review and protected restart",
+      "description": "Backward-compatible v1 full progress, separate wrong-only review, readable homepage counts and inline confirmation.",
+      "dependencies": [
+        "static-question-practice"
+      ],
+      "status": "done",
+      "acceptance_criteria": [
+        "Review preserves source order and full results",
+        "Existing saved progress still parses",
+        "Cancellation never resets progress"
+      ],
+      "evidence": "Implemented at 7e47cd9. Previous session exercised a 58/60 full attempt, two-question review, reload, keyboard confirmation and cancellation; covered by progress/review tests."
+    },
+    {
+      "id": "mobile-home-screen",
+      "name": "Static home-screen metadata",
+      "description": "Traditional Chinese manifest and icons with repository-aware URLs, without a service worker or offline cache.",
+      "dependencies": [
+        "static-question-practice"
+      ],
+      "status": "done",
+      "acceptance_criteria": [
+        "Manifest and icons export under local/current/renamed paths",
+        "No additional dependencies or offline runtime"
+      ],
+      "evidence": "Implemented at 7e47cd9; metadata tests and export checker cover paths and PNG dimensions. Physical installation and actual browser zoom remain untested."
+    },
+    {
+      "id": "agent-harness",
+      "name": "Lightweight project-specific agent harness",
+      "description": "Short agent contract, factual feature state, fail-fast cross-platform verification and restartable session handoff.",
+      "dependencies": [
+        "static-question-practice",
+        "local-progress-review",
+        "mobile-home-screen"
+      ],
+      "status": "done",
+      "acceptance_criteria": [
+        "No placeholder backlog or application changes",
+        "npm run verify executes every existing quality gate",
+        "Harness structural audit passes",
+        "Current evidence and remaining gaps are recorded"
+      ],
+      "evidence": "2026-10-01: npm run verify and Git Bash init.sh passed all gates, 25 tests, and 70 exported asset references. Injected failing first gate stopped immediately with exit 23. Renamed-prefix build/export passed. Structural validator: instructions/state/verification/scope/lifecycle each 5/5 (100/100); not an effectiveness benchmark."
+    }
+  ],
+  "active_feature": null
+}
