@@ -37,7 +37,7 @@ npm run build
 
 在儲存庫 **Settings → Pages → Source** 選擇 **GitHub Actions**。推送至 `main` 時，部署流程會安裝、驗證、檢查、測試、建置並部署靜態頁面。PR 流程也執行全部檢查。
 
-部署路徑使用 Pages 的 `base_path`，不固定儲存庫名稱；本機預設為空路徑。改名後重新執行部署即可。可用 `PAGES_BASE_PATH=/新儲存庫名稱` 建置以檢查子路徑。
+部署路徑使用目前儲存庫名稱，不固定名稱，也不依賴改名後可能尚未更新的 Pages 路徑資料。本機預設為空路徑。改名後重新執行部署即可。可用 `PAGES_BASE_PATH=/新儲存庫名稱` 建置，再執行 `node scripts/check-export.mjs` 檢查靜態資源。
 
-GitHub 的帳號網站、專案網站及自訂網域由 Pages 設定決定。實際線上部署須等待 GitHub 工作流程成功；本機建置不代表已發布。
+目前部署流程使用 GitHub Pages 專案網站路徑；若改用帳號網站或自訂網域，需另調整部署前綴。實際線上部署須等待 GitHub 工作流程成功；本機建置不代表已發布。
 

@@ -8,6 +8,6 @@
 6. 執行 `npm run validate:data`、`npm run lint`、`npm run typecheck`、`npm test`、`npm run build`。驗證會檢查識別碼、題號、四個選項、答案、圖片檔案與來源資料；第一份題庫另檢查 60 題完整性。
 7. 使用 Node.js 24：`npm ci`、`npm run dev`，開啟 `http://localhost:3000`。
 8. 檢查圖片題：裁切只含題目／選項圖片，不含答案欄；在手機與桌機開啟，確認順序、比例、替代文字及答題前沒有答案提示。再檢查重新整理、上一題、完成與重新練習。
-9. GitHub 的 **Settings → Pages → Source** 設為 **GitHub Actions**。推送至 `main` 或執行部署工作流程，即會驗證並部署 `out/`。部署路徑由 Pages 設定取得，改儲存庫名稱後重新部署即可。本機開發不需要設定路徑。
+9. GitHub 的 **Settings → Pages → Source** 設為 **GitHub Actions**。推送至 `main` 或執行部署工作流程，即會驗證並部署 `out/`。專案網站部署路徑取自目前儲存庫名稱，改名後重新部署即可；另會檢查匯出 HTML 的資源前綴及檔案存在。本機開發不需要設定路徑。
 
 進度僅存於目前瀏覽器，各題庫分開。新增資料時避免變更既有題目識別碼；若題目或答案有實質修訂，請使用新的題庫代號，避免舊進度誤套。

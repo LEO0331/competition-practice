@@ -32,7 +32,12 @@ jobs:
       - name: Build static site
         run: npm run build
         env:
-          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          # Pages metadata can retain the previous path after a repository rename.
+          PAGES_BASE_PATH: /${{ github.event.repository.name }}
+      - name: Verify exported asset paths
+        run: node scripts/check-export.mjs
+        env:
+          PAGES_BASE_PATH: /${{ github.event.repository.name }}
       - uses: actions/upload-pages-artifact@v5
         with:
           path: ./out

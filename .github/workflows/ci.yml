@@ -23,3 +23,7 @@ jobs:
         run: npm run build
         env:
           PAGES_BASE_PATH: /${{ github.event.repository.name }}
+      - name: Verify exported asset paths
+        run: node scripts/check-export.mjs
+        env:
+          PAGES_BASE_PATH: /${{ github.event.repository.name }}
