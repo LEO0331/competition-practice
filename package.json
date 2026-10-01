@@ -1,28 +1,14 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "engines": {
-    "node": "24.x",
-    "npm": "11.x"
-  },
+  "name": "competition-practice", "version": "1.0.0", "private": true, "type": "module",
+  "engines": { "node": ">=24" },
   "scripts": {
-    "start": "node index.js",
-    "server": "nodemon index.js",
-    "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "vercel-build": "npm install --prefix client --legacy-peer-deps && npm run build --prefix client",
-    "test": "jest --runInBand"
+    "dev": "next dev", "lint": "eslint .", "typecheck": "next typegen && tsc --noEmit",
+    "test": "node --test tests/*.test.mjs", "validate:data": "node scripts/dataset-report.mjs",
+    "prebuild": "npm run validate:data", "build": "next build"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1",
-    "resend": "^3.0.0",
-    "dotenv": "^17.3.1"
-  },
+  "dependencies": { "next": "^16.3.8", "react": "^19.2.0", "react-dom": "^19.2.0" },
   "devDependencies": {
-    "jest": "26.6.0"
+    "@types/node": "^24.0.0", "@types/react": "^19.2.0", "@types/react-dom": "^19.2.0",
+    "eslint": "^9.0.0", "eslint-config-next": "^16.3.8", "typescript": "^5.9.0"
   }
 }

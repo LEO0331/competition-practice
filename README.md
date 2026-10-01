@@ -1,166 +1,43 @@
-﻿# Emaily (Backend + Client)
-[![Deploy](https://github.com/LEO0331/email_website/actions/workflows/deploy.yml/badge.svg)](https://github.com/LEO0331/email_website/actions/workflows/deploy.yml)
+# 競賽複習題庫
 
-Survey email app with:
-- Node/Express backend
-- React frontend (CRA) in `client/`
-- Optional email sending via Resend
+讓長輩用簡單的方式，一題一題練習競賽題目。全站使用繁體中文、大字與大按鈕；點選答案後立即顯示結果與原始題解。
 
-## Requirements
+目前收錄「114 群英會－金頭腦」，共 60 題，包含原 PDF 圖片題。內容與答案依原始資料保留，沒有題解時不補寫。來源核對紀錄見 [source-review.md](docs/source-review.md)。
 
-- Node.js `24.x`
-- npm `11.x`
-- Vercel account
+## 本機使用
 
-## Local Development
+使用 Node.js 24：
 
-Install backend and client dependencies:
-
-```bash
-npm install
-npm install --prefix client --legacy-peer-deps
-```
-
-Run both backend and frontend:
-
-```bash
+```sh
+npm ci
 npm run dev
 ```
 
-- Backend: `http://localhost:5000`
-- Frontend: `http://localhost:3000`
+開啟 `http://localhost:3000`。首頁 `/` 選擇題庫，`/practice/114-jintounao/` 逐題練習。進度以版本化鍵名存於瀏覽器 localStorage，各題庫獨立保存；同一裝置、同一瀏覽器可接續。清除瀏覽器資料會清除進度。
 
-Run backend Jest tests:
+## 技術與資料
 
-```bash
-npm run test
+Next.js App Router、React、TypeScript，完整靜態匯出，使用系統字型與本機圖片。資料位於 `src/data/questionSets/`，型別位於 `src/types/question.ts`，圖片位於 `public/question-assets/`。不需要帳號、資料庫或伺服器。
+
+新增 PDF 請依 [新增題庫指南](docs/ADDING_QUESTION_SET.md) 添加資料、圖片與題庫登錄。首頁與路由會自動產生。
+
+## 驗證
+
+```sh
+npm run validate:data
+npm run lint
+npm run typecheck
+npm test
+npm run build
 ```
 
-## Environment Variables
+測試使用 Node.js 內建測試工具，涵蓋題庫、排序、查找、進度保存與作答鎖定。`build` 匯出至 `out/`。圖片與全部 60 題均需對照來源 PDF，結構驗證不能取代逐字核對。
 
-Create `.env` in project root:
+## GitHub Pages
 
-```env
-PORT=5000
-DOMAIN=https://your-vercel-domain.vercel.app
-RESEND_API_KEY=your_resend_api_key
-MAIL_FROM=Your App <noreply@yourdomain.com>
-EMAIL_RATE_LIMIT_MAX=5
-EMAIL_RATE_LIMIT_WINDOW_MS=60000
-```
+在儲存庫 **Settings → Pages → Source** 選擇 **GitHub Actions**。推送至 `main` 時，部署流程會安裝、驗證、檢查、測試、建置並部署靜態頁面。PR 流程也執行全部檢查。
 
-Notes:
-- `RESEND_API_KEY` is optional. If missing, API routes still work but emails are skipped.
-- `DOMAIN` is used in generated survey links.
-- `EMAIL_RATE_LIMIT_MAX` and `EMAIL_RATE_LIMIT_WINDOW_MS` are optional and control email endpoint throttling.
+部署路徑使用 Pages 的 `base_path`，不固定儲存庫名稱；本機預設為空路徑。改名後重新執行部署即可。可用 `PAGES_BASE_PATH=/新儲存庫名稱` 建置以檢查子路徑。
 
-## Deploy Backend to Vercel (Manual)
-
-1. Install and login:
-   ```bash
-   npm i -g vercel
-   vercel login
-   ```
-2. Link the repo to a Vercel project (first run only):
-   ```bash
-   vercel
-   ```
-3. Add project environment variables in Vercel Dashboard:
-   - `DOMAIN`
-   - `RESEND_API_KEY` (optional)
-   - `MAIL_FROM` (optional)
-4. Deploy production:
-   ```bash
-   vercel --prod
-   ```
-5. Verify:
-   - Health endpoint: `https://your-vercel-domain.vercel.app/api/health`
-
-## Deploy via GitHub Actions (Vercel)
-
-Workflow file:
-- [deploy.yml](C:/Users/LeoLi/Documents/email_website/.github/workflows/deploy.yml)
-
-Set repository secrets:
-- `VERCEL_TOKEN`
-- `VERCEL_ORG_ID`
-- `VERCEL_PROJECT_ID`
-
-Then push to `main` (or `master`).
-
-Note:
-- Deployed app URLs come from Vercel (`*.vercel.app`), not GitHub Pages (`github.io`).
-- GitHub Actions is only the CI/CD trigger to deploy into Vercel.
-
-## Troubleshooting
-
-### `npm install --prefix client` fails with `ERESOLVE`
-Use legacy peer deps:
-
-```bash
-npm install --prefix client --legacy-peer-deps
-```
-
-(`client/.npmrc` already includes `legacy-peer-deps=true`.)
-
-### CRA preflight fails with `jest` / `babel-jest` conflict
-Do not upgrade root Jest beyond CRA-compatible version. Root is pinned to:
-- `jest@26.6.0`
-
-### Vercel deploy via GitHub Actions fails early
-Check that these GitHub secrets exist and are correct:
-- `VERCEL_TOKEN`
-- `VERCEL_ORG_ID`
-- `VERCEL_PROJECT_ID`
-
----
-
-## 🚀 Demo Flow
-
-### 1. Sign In
-- Start with the demo authentication flow.
-- Once authenticated, you land on the survey dashboard.
-
-### 2. Create a Survey
-- Fill in **title, subject, body, and recipients**.
-- On submit:
-  - Backend validates inputs.
-  - Rate limiting is applied for safety.
-  - Survey record is created.
-  - If `RESEND_API_KEY` is configured, emails are sent via Resend.
-  - If not, the app still runs safely in demo mode.
-
-### 3. View Surveys
-- Surveys are listed with metadata:
-  - Send date
-  - Response counters
-- Provides a quick operational view without extra complexity.
-
-### 4. Log Out
-- Clears the demo session.
-- Returns to the sign‑in page.
-
----
-
-## 🛠️ Tech Stack
-- **Frontend**: React
-- **Backend**: Express
-- **Deployment**: Vercel
-- **CI/CD**: GitHub Actions
-- **Mailer**: Resend (optional)
-
----
-
-## ✅ Verification
-- Strong backend test coverage.
-- Guards for production readiness.
-- Demo‑ready and extensible beyond mock UI.
-
----
-
-## 📦 Development
-```bash
-npm install
-npm run dev
-npm run test
+GitHub 的帳號網站、專案網站及自訂網域由 Pages 設定決定。實際線上部署須等待 GitHub 工作流程成功；本機建置不代表已發布。
 
