@@ -10,7 +10,14 @@ export type Question = {
   answer: ChoiceId;
   explanation?: string | null;
   referenceUrl?: string;
-  source: { file: string; page: number };
+  source: {
+    file: string;
+    page?: number;
+    kind?: "pdf" | "image";
+    questionLabel?: string;
+    images?: string[];
+    note?: string;
+  };
 };
 export type QuestionSet = {
   id: string;

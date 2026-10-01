@@ -2,26 +2,24 @@
 
 ## Current Objective
 
-Agent harness completed. No active feature or pending product request. Application baseline: `7e47cd9`; the harness changes only instructions, state and verification tooling.
+Environment image import complete; no active feature. Baseline before this task: `ade8e3d`. The site has146 practice questions across three sets and48 review pages from79 source images.
 
 ## Verification Evidence
 
-2026-10-01: `npm run verify` (PowerShell) and `bash init.sh` (Git Bash) passed dataset validation, lint, typecheck, 25 tests, build and 70 export asset references. A failing-first-gate probe stopped with its original exit code. Renamed-prefix export passed. Structural harness audit: 100/100, five subsystems each 5/5. Details are in `progress.md`.
+2026-10-01 `npm run verify` passed validation/lint/typecheck/36 tests/build and243 export asset refs. `/renamed-practice/` build/export passed. At375px, reading/quiz have no horizontal scrolling, reading position and new practice progress resume, and source-image summaries work with keyboard. Independent source review matched12 MCQs from5 originals. Original114 dataset and full/review helpers unchanged.
 
 ## Files Changed
 
-`AGENTS.md`, `feature_list.json`, `progress.md`, `session-handoff.md`, `init.sh`, `.gitattributes`, `scripts/verify.mjs`, and `package.json`. Application runtime and customer-facing README are unchanged.
+Image question/study data,79 original JPGs and SHA-256 inventory; simple notes route/card/reader; source/study types/helpers/validation; small homepage/practice/CSS additions; export/data checks, tests, documentation and harness state.
 
 ## Blockers / Risks
 
-No blocker. Actual device home-screen installation/browser zoom and representative before/after agent sessions remain untested. Preserve v1 full progress and separate review state. Do not trust stale Pages base-path metadata after a rename.
+No code blocker. Source omissions: national 第4-3/4-4 and IMG_9613 are absent. A carbon-cycle answer is annotated with a question mark in the original; blurry plastic-card characters are marked rather than inferred. See `docs/IMAGE_SOURCE_REVIEW.md`. No external factual modernization performed. Physical home-screen installation and actual browser zoom remain untested.
 
 ## Next Session Startup
 
-1. Read `AGENTS.md`, feature state, progress and this handoff; inspect Git status and recent commits.
-2. Follow the latest concrete user request. Add/update one feature with acceptance criteria and bounded file ownership; do not invent a backlog.
-3. On a fresh checkout install the existing lockfile with `npm ci`, then run `npm run verify` for substantive changes. Wording-only changes need link/whitespace checks.
+Read `AGENTS.md`, feature state, progress and this file; inspect Git status/history; follow the latest user request and run `npm run verify` for substantive changes. Preserve source images/wording, old progress keys, and separate notes position. New sets register in questionSets; review pages in studyCollections.
 
 ## Recommended Next Step
 
-Wait for the next requested change. Use `npm run verify` for final evidence, update state/handoff, and distinguish local, committed, pushed and deployed results. Consult Git history for the harness commit; this snapshot intentionally does not refer to its own future commit hash.
+No additional scope is pending. Check the current Git/Actions state before claiming publication. Use original images and `docs/IMAGE_SOURCE_REVIEW.md` for any explicit source-correction request; do not silently fill missing questions.

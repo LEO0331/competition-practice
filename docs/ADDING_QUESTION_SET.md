@@ -11,3 +11,5 @@
 9. GitHub 的 **Settings → Pages → Source** 設為 **GitHub Actions**。推送至 `main` 或執行部署工作流程，即會驗證並部署 `out/`。專案網站部署路徑取自目前儲存庫名稱，改名後重新部署即可；另會檢查匯出 HTML 的資源前綴及檔案存在。本機開發不需要設定路徑。
 
 進度僅存於目前瀏覽器，各題庫分開。新增資料時避免變更既有題目識別碼；若題目或答案有實質修訂，請使用新的題庫代號，避免舊進度誤套。
+
+圖片題目可設定 `source.kind: "image"`，保留原檔名、`questionLabel` 及 `images` 原圖路徑；沒有可靠頁碼時省略 `page`，不假造 PDF 頁碼。只有四個完整選項及明示答案的題目才納入作答題庫。純筆記或圖卡使用 `src/data/studyCollections/` 的 `StudyCollection`，登錄後自動出現在首頁「複習資料」。原圖保存在 `public/source-images/environment/`，逐檔清單及轉錄問題見 `src/data/imageSources.ts`、`docs/IMAGE_SOURCE_REVIEW.md`。

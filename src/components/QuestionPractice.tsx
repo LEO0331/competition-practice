@@ -9,6 +9,7 @@ import type { Choice, QuestionSet } from "@/types/question";
 import { answerQuestion, countCorrect, createProgress, loadProgress, moveToQuestion, progressKey, saveProgress, type Progress } from "@/lib/progress";
 import { clearReviewSession, createReviewSession, incorrectQuestionIds, loadReviewSession, reviewQuestionSet, saveReviewSession, type ReviewSession } from "@/lib/review";
 import { QuestionChoice } from "./QuestionChoice";
+import { questionSourceLabel } from "@/lib/sources";
 
 export function QuestionPractice({ set }: { set: QuestionSet }) {
   const [fullProgress, setFullProgress] = useState<Progress | null>(null);
@@ -114,7 +115,11 @@ export function QuestionPractice({ set }: { set: QuestionSet }) {
           <h2>{selected === question.answer ? "答對了" : "這題答錯了"}</h2>
           <p><strong>正確答案：{correctLabel}</strong></p>
           <h3>題解</h3><p className="explanation">{question.explanation || "原始題庫未提供題解"}</p>
-          <p className="source">來源：{question.source.file}，第 {question.source.page} 頁</p>
+          <p className="source">{questionSourceLabel(question.source)}</p>
+          {question.source.note && <p className="source-notice">{question.source.note}</p>}
+          {question.source.images && <details className="source-original" key={question.id}><summary>查看原始圖片</summary>
+            {question.source.images.map((path) => <img className="study-image" loading="lazy" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${path}`} alt="這題的原始圖片，包含來源答案" key={path} />)}
+          </details>}
           {question.referenceUrl && <p><a className="text-link source" href={question.referenceUrl} target="_blank" rel="noopener noreferrer">原始參考資料（另開視窗）</a></p>}
         </section>}
         <div className="question-navigation">

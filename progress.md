@@ -3,7 +3,7 @@
 ## Current State
 
 **Last Updated:** 2026-10-01 (Asia/Taipei)
-**Active Feature:** none — agent-harness is done.
+**Active Feature:** none — environment-image-materials is done.
 **Application baseline:** 7e47cd9; repository `LEO0331/competition-practice`.
 
 ## What's Done
@@ -38,3 +38,15 @@ Use a small root guide with existing docs for details. Keep `npm run verify` as 
 ## Notes for Next Session
 
 Do not infer a new product feature from this harness or rerun completed work without a new requirement. Check Git history/status for commit and publication state; local verification alone is not live deployment evidence.
+
+
+## Session — Environment Source Images (2026-10-01)
+
+- Request: adapt the supplied question pictures and review-only pictures into the existing simple site.
+- Added 28 questions for 112 北市金頭腦考題, 58 for 112 全國金頭腦考題, and 48 review pages. All79 original JPGs retained unchanged and SHA-256 inventoried. Original114 dataset still has60 questions without any diff.
+- UI: existing question flow reused; source images only available after answering. Separate `/notes/environment-notes/` reader uses the existing typography/cards/previous-next layout and a `competition-practice:notes:v1:<collectionId>` position key. No practice results overwritten, new dependency or advanced menu.
+- Source boundaries: national 第4-3/4-4 absent; IMG_9613 absent; source carbon-cycle answer4 contains a question-mark annotation. Blurry poster fine print uses explicit placeholders. Full details in `docs/IMAGE_SOURCE_REVIEW.md`; no guessed questions or facts.
+- Verification: `npm run verify` PASS — validation, lint, typecheck,36 tests, static build and243 asset refs. Renamed `/renamed-practice/` build/export also PASS. Original current-prefix output restored.
+- Browser: 375px reader/quiz no horizontal overflow,20px body text; saved reading position restored after reload; new quiz answers locked and question2 resumed; original JPG loaded at correct prefix and summary expanded with keyboard. Independent review compared12 MCQs from5 originals and found no discrepancies.
+- Files: new source question/study data and inventory, original images, notes route/cards/reader, source/study types/helpers/validators, existing homepage/practice/CSS/export/data report, source review docs, README, tests and harness state.
+- Remaining gaps: actual browser zoom and physical mobile installation remain earlier-session gaps; some source text/answers intentionally require manual source review. No current code/test blocker. Check Git history for publication/deployment state; local build alone does not prove live deployment.

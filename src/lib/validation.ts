@@ -32,7 +32,13 @@ export function validateQuestionSets(sets: QuestionSet[], assetExists?: (path: s
         image(c.image, c.alt, `${label} 選項 ${c.id}`);
       }
       if (![1, 2, 3, 4].includes(q.answer)) errors.push(`${label}：答案無效`);
-      if (!nonempty(q.source.file) || !Number.isInteger(q.source.page) || q.source.page <= 0) errors.push(`${label}：來源資訊無效`);
+      const pageRequired = q.source.kind !== "image";
+      if (!nonempty(q.source.file) || (pageRequired && q.source.page === undefined) ||
+          (q.source.page !== undefined && (!Number.isInteger(q.source.page) || q.source.page <= 0))) errors.push(`${label}：來源資訊無效`);
+      for (const original of q.source.images ?? []) {
+        if (!/^\/source-images\/environment\/img_\d+\.jpg$/.test(original) || (assetExists && !assetExists(original)))
+          errors.push(`${label}：原始圖片不存在或路徑無效`);
+      }
       if (q.referenceUrl) {
         try { if (!["https:", "http:"].includes(new URL(q.referenceUrl).protocol)) throw new Error(); }
         catch { errors.push(`${label}：參考網址無效`); }

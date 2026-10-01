@@ -58,6 +58,16 @@ p + p { margin-top: 12px; }
 .storage-warning { border: 2px solid #98641e; padding: 16px; border-radius: 8px; background: #fff8e8; margin-bottom: 22px; }
 .restart-confirmation { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
 .restart-confirmation .storage-warning { margin-top: 20px; }
+.study-home { margin-top: 36px; }
+.study-home > h2 { margin-bottom: 20px; }
+.study-section { margin-top: 26px; }
+.study-section h2 { font-size: 24px; margin-bottom: 12px; }
+.study-text { white-space: pre-line; }
+.study-image { display: block; width: auto; height: auto; max-width: 100%; margin: 24px auto; }
+.source-original { margin-top: 20px; }
+.source-original summary { min-height: 56px; padding: 12px 16px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; font-weight: 700; }
+.source-original summary:focus-visible { outline: 3px solid #8d4d00; outline-offset: 4px; }
+.source-notice { margin-top: 20px; padding: 16px; border-left: 4px solid var(--primary); background: #f2f6f3; }
 .skip-link { position: absolute; top: -120px; left: 16px; background: #fff; padding: 12px; z-index: 2; }
 .skip-link:focus { top: 12px; }
 @media (max-width: 600px) {

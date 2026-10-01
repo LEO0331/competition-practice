@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { questionSets } from '../src/data/questionSets/index.ts';
+import { studyCollections } from '../src/data/studyCollections/index.ts';
 
 const basePath = (process.env.PAGES_BASE_PATH || '').replace(/\/$/, '');
 let checked = 0;
@@ -37,6 +38,10 @@ function checkDirectory(directory) {
       assert.ok(url.startsWith(`${basePath}/question-assets/`), `${path}: incorrect question image prefix ${url}`);
       checkAsset(url, path);
     }
+    for (const [, url] of html.matchAll(/(?:src|href)="([^"\s]*\/source-images\/[^"\s]*)"/g)) {
+      assert.ok(url.startsWith(`${basePath}/source-images/`), `${path}: incorrect original image prefix ${url}`);
+      checkAsset(url, path);
+    }
   }
 }
 checkDirectory('out');
@@ -56,7 +61,12 @@ for (const set of questionSets) {
     for (const image of [question.image, ...question.choices.map(choice => choice.image)]) {
       if (image) checkAsset(`${basePath}${image}`, `${set.id} question ${question.number}`);
     }
+    for (const image of question.source.images ?? []) checkAsset(`${basePath}${image}`, `${set.id} original source`);
   }
+}
+for (const collection of studyCollections) {
+  assert.ok(existsSync(join('out', 'notes', collection.id, 'index.html')), `Missing static notes route ${collection.id}`);
+  for (const page of collection.pages) checkAsset(`${basePath}${page.image}`, page.id);
 }
 assert.ok(checked > 0, 'No exported HTML assets checked');
 console.log(`已驗證 ${checked} 個靜態資源路徑，部署前綴：${basePath || '/'}`);

@@ -59,6 +59,24 @@
         "Current evidence and remaining gaps are recorded"
       ],
       "evidence": "2026-10-01: npm run verify and Git Bash init.sh passed all gates, 25 tests, and 70 exported asset references. Injected failing first gate stopped immediately with exit 23. Renamed-prefix build/export passed. Structural validator: instructions/state/verification/scope/lifecycle each 5/5 (100/100); not an effectiveness benchmark."
+    },
+    {
+      "id": "environment-image-materials",
+      "name": "Question and review material from source images",
+      "description": "Faithfully transcribe the 79 supplied images into source-backed practice sets and a simple review reader.",
+      "dependencies": [
+        "static-question-practice",
+        "local-progress-review"
+      ],
+      "status": "done",
+      "acceptance_criteria": [
+        "Every supplied image accounted for",
+        "Only explicit complete MCQs become practice questions",
+        "Notes retain readable source text and original imagery",
+        "Existing source set and saved progress unchanged",
+        "375px and static export checks pass"
+      ],
+      "evidence": "2026-10-01: all79 images visually transcribed and preserved with SHA-256 inventory; 86 new explicit-answer MCQs (28/58) and 48 review pages. npm run verify passed validation/lint/typecheck/36 tests/build/243 export refs; renamed prefix passed. 375px reading/resume, keyboard original-image controls and independent question progress checked. Missing national4-3/4-4 and ambiguous source annotations documented; existing114 dataset and progress helpers unchanged."
     }
   ],
   "active_feature": null
