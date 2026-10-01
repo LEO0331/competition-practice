@@ -1,10 +1,24 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import "./globals.css";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export const metadata: Metadata = {
   title: "競賽複習題庫",
-  description: "用簡單的方式，一題一題練習競賽題目。",
+  applicationName: "競賽複習題庫",
+  description: "簡單易用的環境知識競賽題庫練習網站，適合逐題複習與賽前準備。",
+  icons: {
+    icon: { url: `${basePath}/app-icons/icon.svg`, type: "image/svg+xml" },
+    apple: { url: `${basePath}/app-icons/apple-touch-icon.png`, sizes: "180x180", type: "image/png" },
+  },
+  appleWebApp: { capable: true, title: "競賽題庫", statusBarStyle: "default" },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#255d49",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

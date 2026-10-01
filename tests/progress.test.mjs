@@ -1,8 +1,26 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { questionSets } from '../src/data/questionSets/index.ts';
-import { createProgress, parseProgress, progressKey, answerQuestion, moveToQuestion, countCorrect, loadProgress, saveProgress } from '../src/lib/progress.ts';
+import { createProgress, parseProgress, progressKey, answerQuestion, moveToQuestion, countCorrect, countAnswered, loadProgress, saveProgress } from '../src/lib/progress.ts';
 const set = questionSets[0];
+
+test('existing v1 data keeps answered counts, correct counts and position', () => {
+  const raw={version:1,position:2,completed:false,answers:{[set.questions[0].id]:set.questions[0].answer,[set.questions[1].id]:1}};
+  const restored=parseProgress(set,JSON.stringify(raw));
+  assert.deepEqual(restored,raw); assert.equal(countAnswered(set,restored),2); assert.equal(countCorrect(set,restored),1);
+});
+test('preparing a fresh session leaves saved progress untouched until explicitly saved', () => {
+  const values=new Map();
+  globalThis.window={localStorage:{getItem:k=>values.get(k)??null,setItem:(k,v)=>values.set(k,v)}};
+  try {
+    const original=answerQuestion(set,createProgress(set),set.questions[0].answer);
+    const before=structuredClone(original); saveProgress(set,original);
+    const fresh=createProgress(set);
+    assert.deepEqual(loadProgress(set),original); assert.deepEqual(original,before);
+    saveProgress(set,fresh);
+    assert.deepEqual(loadProgress(set),fresh); assert.deepEqual(original,before);
+  } finally { delete globalThis.window; }
+});
 
 test('serialized progress resumes position, chosen answers and result', () => {
   let p = answerQuestion(set, createProgress(set), set.questions[0].answer);

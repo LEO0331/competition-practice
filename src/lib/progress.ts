@@ -53,3 +53,6 @@ export function moveToQuestion(set: QuestionSet, progress: Progress, index: numb
 export function countCorrect(set: QuestionSet, progress: Progress): number {
   return set.questions.filter((q) => progress.answers[q.id] === q.answer).length;
 }
+export function countAnswered(set: QuestionSet, progress: Progress): number {
+  return set.questions.filter((q) => progress.answers[q.id] !== undefined).length;
+}
