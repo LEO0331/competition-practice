@@ -77,6 +77,24 @@
         "375px and static export checks pass"
       ],
       "evidence": "2026-10-01: all79 images visually transcribed and preserved with SHA-256 inventory; 86 new explicit-answer MCQs (28/58) and 48 review pages. npm run verify passed validation/lint/typecheck/36 tests/build/243 export refs; renamed prefix passed. 375px reading/resume, keyboard original-image controls and independent question progress checked. Missing national4-3/4-4 and ambiguous source annotations documented; existing114 dataset and progress helpers unchanged."
+    },
+    {
+      "id": "additional-pdf-question-sets",
+      "name": "113 national and114 guanlan source PDFs",
+      "description": "Add both supplied source PDFs as independent question sets using the existing static practice flow.",
+      "dependencies": [
+        "static-question-practice",
+        "local-progress-review"
+      ],
+      "status": "done",
+      "acceptance_criteria": [
+        "Every source question and marked answer visually cross-checked",
+        "Warm-up rows preserved and distinguished from source main numbering",
+        "Source explanations and anyimages retained without invention",
+        "Existing datasets and progress unchanged",
+        "All verification gates pass"
+      ],
+      "evidence": "2026-10-02: all7 rendered source pages visually checked. Added65 (5warmup+60main) and30 questions; retained15 guanlan explanations including recoveredQ11. Independent table comparison matched all95 stems/options/answers/pages with layout/compatibility normalization. npm run verify passed validation/lint/typecheck/39 tests/build/269 export refs; 375px answer locking/source labels/resume checked. No existing datasets or progress helpers changed."
     }
   ],
   "active_feature": null

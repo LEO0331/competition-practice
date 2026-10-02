@@ -2,8 +2,8 @@
 
 ## Current State
 
-**Last Updated:** 2026-10-01 (Asia/Taipei)
-**Active Feature:** none — environment-image-materials is done.
+**Last Updated:** 2026-10-02 (Asia/Taipei)
+**Active Feature:** none — additional-pdf-question-sets is done.
 **Application baseline:** 7e47cd9; repository `LEO0331/competition-practice`.
 
 ## What's Done
@@ -50,3 +50,15 @@ Do not infer a new product feature from this harness or rerun completed work wit
 - Browser: 375px reader/quiz no horizontal overflow,20px body text; saved reading position restored after reload; new quiz answers locked and question2 resumed; original JPG loaded at correct prefix and summary expanded with keyboard. Independent review compared12 MCQs from5 originals and found no discrepancies.
 - Files: new source question/study data and inventory, original images, notes route/cards/reader, source/study types/helpers/validators, existing homepage/practice/CSS/export/data report, source review docs, README, tests and harness state.
 - Remaining gaps: actual browser zoom and physical mobile installation remain earlier-session gaps; some source text/answers intentionally require manual source review. No current code/test blocker. Check Git history for publication/deployment state; local build alone does not prove live deployment.
+
+
+## Session — Additional Source PDFs (2026-10-02)
+
+- Added113 群英會全國賽－環保金頭腦:65 questions, including5 warmup and60 main rows. Retained original source labels and4 actual PDF page references; no source explanations or images.
+- Added114 群英會－灌籃高手:30 questions across3 pages,15 source explanations and15 null. RecoveredQ11 explanation from a borderless cell; preserved source typos and Q1's original citation rather than inventing commentary. No images/URLs required.
+- Source verification: visually inspected all7 rendered pages; independent table comparison matched all95 stems, four choices, answer indices and page mappings after whitespace/Unicode compatibility normalization. Detailed audit records in docs/113-national-source-review.md and docs/114-guanlan-source-review.md.
+- Current checks: npm run verify PASS — dataset validation, lint, typecheck,39 tests, static build and269 exported asset references. Added tests for65/30 counts, deterministic IDs, warmup/main label boundaries, page distribution and recovered source explanation.
+- Browser375px: both new routes work, correct answer locks all four choices, PDF source labels display, question2 resumes after refresh. Existing UI/design, old datasets, study pages and full/review/notes progress helpers unchanged.
+- Files: two typed data files, registry, three provenance docs, README, tests and harness state. Site now241 practice questions across5 sets plus48 review pages.
+- No unreadable or missing new-source rows. Original suspicious wording remains unchanged and documented. Actual browser zoom and physical home-screen installation remain earlier-session gaps.
+- Publication: consult Git history/Actions for the current commit and deployment state; local build alone is not publication evidence.
