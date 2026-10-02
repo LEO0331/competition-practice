@@ -1,6 +1,7 @@
 export type StudyPage = {
   id: string;
   title: string;
+  tocLabel?: string;
   sections: { heading: string; text: string }[];
   image: string;
   imageAlt: string;

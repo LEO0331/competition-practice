@@ -95,6 +95,25 @@
         "All verification gates pass"
       ],
       "evidence": "2026-10-02: all7 rendered source pages visually checked. Added65 (5warmup+60main) and30 questions; retained15 guanlan explanations including recoveredQ11. Independent table comparison matched all95 stems/options/answers/pages with layout/compatibility normalization. npm run verify passed validation/lint/typecheck/39 tests/build/269 export refs; 375px answer locking/source labels/resume checked. No existing datasets or progress helpers changed."
+    },
+    {
+      "id": "study-navigation-random-practice",
+      "name": "Study directory and saved random practice",
+      "description": "Add native TOC/page selection and optional persisted Fisher-Yates question order without altering source content.",
+      "dependencies": [
+        "environment-image-materials",
+        "local-progress-review"
+      ],
+      "status": "done",
+      "acceptance_criteria": [
+        "Reading jumps persist old position key and focus headings",
+        "Navigation labels alone change generic page descriptions",
+        "Random order saved once and resumes identically",
+        "Only confirmed restarts overwrite existing sessions",
+        "Answer choices and source-ordered review unchanged",
+        "All checks and375px flows pass"
+      ],
+      "evidence": "2026-10-02: implementation verified locally. Native48-pageTOC/select save andfocus jumps;20 source-derived navigation labels only. OptionalquestionOrder persists one Fisher-Yates order on existingv1key; protected resets and source-order review. Validation/lint/typecheck/50tests/build/verify/269exportrefs passed; renamedpath passed. Browser375px verified jumps+reload, randomcancel/resume,30unique questions/completion/review independence/freshattempt. Publication not performed: auto-review requires explicit approval to commit/push main. User explicitly approved committing/pushing main; publication proceeding."
     }
   ],
   "active_feature": null

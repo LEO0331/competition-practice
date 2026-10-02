@@ -8,6 +8,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9590",
       "title": "環保題整理【1】",
+      "tocLabel": "物種、生物關係與淡水資源",
       "sections": [
         {
           "heading": "環保題整理【1】",
@@ -23,6 +24,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9591",
       "title": "環保題整理【5】",
+      "tocLabel": "環境紀念日、水質與濕地",
       "sections": [
         {
           "heading": "環保題整理【5】",
@@ -38,6 +40,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9592",
       "title": "環保題整理【6】",
+      "tocLabel": "環境法規、清潔生產、BOD與水污染",
       "sections": [
         {
           "heading": "環保題整理【6】",
@@ -53,6 +56,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9593",
       "title": "環保題整理【7】",
+      "tocLabel": "核能、能源分配與國家公園",
       "sections": [
         {
           "heading": "環保題整理【7】",
@@ -68,6 +72,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9594",
       "title": "環保題整理【8-1】",
+      "tocLabel": "國際環保公約",
       "sections": [
         {
           "heading": "環保題整理【8-1】",
@@ -83,6 +88,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9595",
       "title": "環保題整理【8-2】",
+      "tocLabel": "臭氧層與溫室氣體",
       "sections": [
         {
           "heading": "環保題整理【8-2】",
@@ -98,6 +104,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9596",
       "title": "環保題整理【9】",
+      "tocLabel": "空氣污染指標、濕地與環境用藥",
       "sections": [
         {
           "heading": "環保題整理【9】",
@@ -113,6 +120,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9597",
       "title": "環保題整理【10】",
+      "tocLabel": "用水來源、生質柴油與生物多樣性",
       "sections": [
         {
           "heading": "環保題整理【10】",
@@ -128,6 +136,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9598",
       "title": "環保題整理【11】",
+      "tocLabel": "垃圾減量、水足跡與水質指數",
       "sections": [
         {
           "heading": "環保題整理【11】",
@@ -143,6 +152,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9599",
       "title": "環保題整理【12】",
+      "tocLabel": "熱島效應、再生能源與污泥消化",
       "sections": [
         {
           "heading": "環保題整理【12】",
@@ -158,6 +168,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9600",
       "title": "環保題整理【13】",
+      "tocLabel": "海洋發電、凍融作用與紫外線",
       "sections": [
         {
           "heading": "環保題整理【13】",
@@ -173,6 +184,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9601",
       "title": "環保題整理【14】",
+      "tocLabel": "地層下陷、永續能源與環境知情權",
       "sections": [
         {
           "heading": "環保題整理【14】",
@@ -462,6 +474,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9648",
       "title": "【其他】p.1",
+      "tocLabel": "氣象觀測、環境用藥與凍融作用",
       "sections": [
         {
           "heading": "【其他】p.1",
@@ -477,6 +490,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9649",
       "title": "【其他】p.2",
+      "tocLabel": "環境紀念日、重金屬與輻射",
       "sections": [
         {
           "heading": "【其他】p.2",
@@ -493,6 +507,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9650",
       "title": "【其他】p.3",
+      "tocLabel": "節電、用電安全與環境公平正義",
       "sections": [
         {
           "heading": "【其他】p.3",
@@ -508,6 +523,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9651",
       "title": "【其他】p.4",
+      "tocLabel": "生物關係與資源回收四合一",
       "sections": [
         {
           "heading": "【其他】p.4",
@@ -523,6 +539,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9652",
       "title": "【比較整理】",
+      "tocLabel": "臭氧層、溫室氣體與污染指數",
       "sections": [
         {
           "heading": "【比較整理】",
@@ -568,6 +585,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9655",
       "title": "【114補充】p.1",
+      "tocLabel": "農藥空瓶、淨零排放與空氣品質維護區",
       "sections": [
         {
           "heading": "【114補充】p.1",
@@ -583,6 +601,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9656",
       "title": "【114補充】p.2",
+      "tocLabel": "塑膠容器3S1R與綠色費率",
       "sections": [
         {
           "heading": "【114補充】p.2",
@@ -734,6 +753,7 @@ export const environmentNotes: StudyCollection = {
     {
       "id": "environment-notes-img_9666",
       "title": "114全國賽新增—其他",
+      "tocLabel": "化學物質、自然碳匯與資源回收",
       "sections": [
         {
           "heading": "114全國賽新增—其他",

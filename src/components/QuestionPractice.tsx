@@ -6,7 +6,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { Choice, QuestionSet } from "@/types/question";
-import { answerQuestion, countCorrect, createProgress, loadProgress, moveToQuestion, progressKey, saveProgress, type Progress } from "@/lib/progress";
+import { answerQuestion, countCorrect, createProgress, createRandomProgress, sessionQuestions, loadProgress, moveToQuestion, progressKey, saveProgress, type Progress } from "@/lib/progress";
 import { clearReviewSession, createReviewSession, incorrectQuestionIds, loadReviewSession, reviewQuestionSet, saveReviewSession, type ReviewSession } from "@/lib/review";
 import { QuestionChoice } from "./QuestionChoice";
 import { questionSourceLabel } from "@/lib/sources";
@@ -70,26 +70,27 @@ export function QuestionPractice({ set }: { set: QuestionSet }) {
   }
   function restart(activeSet: QuestionSet) {
     if (!review) clearReviewSession(set);
-    update(createProgress(activeSet), true);
+    update(!review && fullProgress?.questionOrder ? createRandomProgress(set) : createProgress(activeSet), true);
   }
 
   if (!fullProgress) return <section className="card page-intro" aria-live="polite"><h1>正在讀取練習進度…</h1></section>;
   const activeSet = review ? reviewQuestionSet(set, review.questionIds) : set;
   const progress = review?.progress ?? fullProgress;
-  const question = activeSet.questions[progress.position];
+  const question = sessionQuestions(activeSet, progress)[progress.position];
+  const modeLabel = review ? "・錯題再練習" : progress.questionOrder ? "・隨機練習" : "";
   const storageWarning = storageFailed && <p className="storage-warning" role="alert">這個瀏覽器無法儲存進度。你仍可繼續練習，但關閉頁面後，這次的進度可能不會保留。</p>;
 
   if (progress.completed) {
     const wrongCount = incorrectQuestionIds(activeSet, progress).length;
     return (
       <section className="card completion">
-        <p className="set-label">{set.title}</p>
+        <p className="set-label">{set.title}{modeLabel}</p>
         <h1 ref={heading} tabIndex={-1}>{review ? "錯題練習完成" : "本次練習完成"}</h1>
         <p>共 {activeSet.questions.length} 題，答對 {countCorrect(activeSet, progress)} 題。</p>
         {storageWarning}
         <div className="actions">
           {wrongCount > 0 && <button type="button" className="button" onClick={() => startReview(activeSet, progress)}>只練錯題（{wrongCount} 題）</button>}
-          <button type="button" className={`button${wrongCount > 0 ? " secondary" : ""}`} onClick={() => restart(activeSet)}>再練習一次</button>
+          <button type="button" className={`button${wrongCount > 0 ? " secondary" : ""}`} onClick={() => restart(activeSet)}>{!review && progress.questionOrder ? "再次隨機練習" : "再練習一次"}</button>
           {review && <button type="button" className="button secondary" onClick={returnToFullResult}>回到完整練習結果</button>}
           <Link className="button secondary" href="/">回到首頁</Link>
         </div>
@@ -103,7 +104,7 @@ export function QuestionPractice({ set }: { set: QuestionSet }) {
   const correctLabel = `選項 ${question.answer}${correctChoice?.text ? `：${correctChoice.text}` : "（圖片）"}`;
   return (
     <>
-      <div className="practice-top"><Link className="text-link" href="/">回到首頁</Link><p className="set-label">{set.title}{review ? "・錯題再練習" : ""}</p></div>
+      <div className="practice-top"><Link className="text-link" href="/">回到首頁</Link><p className="set-label">{set.title}{modeLabel}</p></div>
       <div className="progress-line"><p>第 {progress.position + 1} 題 / 共 {activeSet.questions.length} 題</p><p>答對 {countCorrect(activeSet, progress)} 題</p></div>
       {storageWarning}
       <section className="card question-card" aria-labelledby="question-heading">

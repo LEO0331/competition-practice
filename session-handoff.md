@@ -2,24 +2,24 @@
 
 ## Current Objective
 
-Both new source PDF question sets are imported and verified; no active feature. Baseline before this task: ab146c1. The site now has241 practice questions across5 sets plus48 review pages.
+Study navigation and saved random practice are complete and locally verified. No active implementation feature. The user explicitly approved commit/push to main; publication is authorized. Baseline305b84b; content remains241 questions and48 review pages.
 
 ## Verification Evidence
 
-2026-10-02 npm run verify passed validation/lint/typecheck/39 tests/build and269 asset references. All7 new PDF pages visually checked; all95 question rows independently match extracted stems/options/answers/page references after layout/compatibility normalization. Mobile375px checks cover both routes, answer locking, source labels, explanations and refresh/resume.
+2026-10-02 validation/lint/typecheck/50 tests/build/npm run verify and269 asset references passed. Renamed-prefix export passed.375px browser verified focused/saved study jumps, random reload/cancel,30 distinct-question completion, independent source-ordered review and a fresh random attempt.
 
 ## Files Changed
 
-src/data/questionSets/113-national-jintounao.ts, 114-guanlan.ts and registry; source review docs, README, tests/additional-pdfs.test.mjs and harness state. No application UI, old dataset, original image, storage-helper or deployment change.
+Reader/practice/cards; progress/review/study/shuffle helpers; study type/validation plus20 navigation labels; scoped CSS; tests; README/docs and state. No source content or choice order changed.
 
 ## Blockers / Risks
 
-No blocker or unreadable new-source row. Preserve source wording and original answers; source typos and guanlan Q1 citation/Q11 extraction repair are documented. Existing picture-material gaps remain in docs/IMAGE_SOURCE_REVIEW.md. Actual browser zoom and physical mobile installation remain untested.
+The initial publication attempt was rejected for missing explicit authorization. The user then answered "Yes, publish to main", resolving that condition. No implementation blocker. Physical installation and actual browser zoom remain previous-session gaps.
 
 ## Next Session Startup
 
-Read AGENTS.md, feature state, progress and this handoff; inspect Git status/history; follow the latest user request. Run npm run verify for substantive edits. New IDs113-national-jintounao and114-guanlan have independent v1 progress/review keys via existing helpers.
+Read AGENTS.md, state/progress and Git status/history. Existing v1 keys stay unchanged; optional questionOrder records one full-session permutation. Review remains source-ordered and independent. tocLabel is navigation-only.
 
 ## Recommended Next Step
 
-No product scope pending. Confirm Git/Actions status before claiming live deployment. Source review: docs/113-national-source-review.md and docs/114-guanlan-source-review.md. Do not rewrite or modernize source competition content without an explicit request.
+Complete/check the authorized push and Actions deployment, then report actual live status. No further product scope is pending; re-run checks only if new code changes warrant it.

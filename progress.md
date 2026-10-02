@@ -3,7 +3,7 @@
 ## Current State
 
 **Last Updated:** 2026-10-02 (Asia/Taipei)
-**Active Feature:** none — additional-pdf-question-sets is done.
+**Active Feature:** none — study-navigation-random-practice is done; publication approved.
 **Application baseline:** 7e47cd9; repository `LEO0331/competition-practice`.
 
 ## What's Done
@@ -62,3 +62,19 @@ Do not infer a new product feature from this harness or rerun completed work wit
 - Files: two typed data files, registry, three provenance docs, README, tests and harness state. Site now241 practice questions across5 sets plus48 review pages.
 - No unreadable or missing new-source rows. Original suspicious wording remains unchanged and documented. Actual browser zoom and physical home-screen installation remain earlier-session gaps.
 - Publication: consult Git history/Actions for the current commit and deployment state; local build alone is not publication evidence.
+
+
+## Session — Study Navigation and Random Practice (2026-10-02)
+
+- Added native48-pageTOC and labelled select. Valid jumps save existingnotes:v1 position and focus H1 without a route reload.20 optional navigation labels only on generic pages1–12,27–31,34–35,45; source title/text/images/order unchanged.
+- Fisher-Yates creates one optionalquestionOrder on fullv1 progress. Existing sequential records remain valid; invalid orders fall back safely without rewriting storage on load. Source questions and answer choices unchanged. Wrong review remains source-ordered on its separate key.
+- Random buttons use existing inline reset confirmation/cancel. Completed random attempts explicitly offer再次隨機練習 and draw fresh progress.
+- Actual checks: individual validation/lint/typecheck/tests and npm run verify PASS;50 tests; production andrenamed builds/export PASS with269 assets each.
+- Browser375px: TOC labels wrap/no horizontal overflow; select/TOC focus sourceH1; reload kept page45. Random reload/cancel preserved position;30 unique questions completed; source-first wrong review preserved full8/30 result; fresh random retry cleared answers and changed order.
+- Files: StudyReader/QuestionPractice/QuestionSetCard; study/progress/review/shuffle helpers; study type/validation/navigation metadata; scoped CSS; tests; README/data docs and state. Independent review found no blocker.
+- Publication NOT performed. Automatic approval review rejected the combined commit/push-main action because the current request lacked explicit authorization for that externally consequential publication. A permission question is pending. Do not bypass rejection; publish only after direct user approval.
+- Physical mobile installation/actual browser zoom remain previous-session gaps. Implementation has no pending code work; GitHub Pages still runs the prior committed version.
+
+### Publication approval
+
+The user directly answered "Yes, publish to main" to the explicit commit/push/deployment question. The prior missing-authorization condition is resolved; publishing this verified update is authorized. Check the final Git/Actions state for completion.

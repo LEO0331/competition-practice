@@ -5,7 +5,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { StudyCollection } from "@/types/study";
-import { loadStudyPosition, saveStudyPosition } from "@/lib/study";
+import { isStudyPosition, loadStudyPosition, saveStudyPosition, studyPageLabel } from "@/lib/study";
 
 export function StudyReader({ collection }: { collection: StudyCollection }) {
   const [position, setPosition] = useState<number | null>(null);
@@ -13,6 +13,7 @@ export function StudyReader({ collection }: { collection: StudyCollection }) {
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => { setPosition(loadStudyPosition(collection)); }, [collection]);
   function go(index: number) {
+    if (!isStudyPosition(collection, index)) return;
     setPosition(index);
     setStorageFailed(!saveStudyPosition(collection, index));
     window.requestAnimationFrame(() => heading.current?.focus());
@@ -24,6 +25,22 @@ export function StudyReader({ collection }: { collection: StudyCollection }) {
   return <>
     <div className="practice-top"><Link className="text-link" href="/">回到首頁</Link><p className="set-label">{collection.title}</p></div>
     <p className="progress-line">第 {position + 1} 頁 / 共 {collection.pages.length} 頁</p>
+    <div className="study-page-jump">
+      <label htmlFor="study-page-select">跳到其他頁</label>
+      <select id="study-page-select" className="study-page-select" value={position} onChange={(event) => go(Number(event.target.value))}>
+        {collection.pages.map((item, index) => <option key={item.id} value={index}>{index + 1} — {studyPageLabel(item)}</option>)}
+      </select>
+    </div>
+    <details className="study-toc">
+      <summary>複習目錄</summary>
+      <ol className="study-toc-list">
+        {collection.pages.map((item, index) => <li key={item.id}>
+          <button type="button" className="button secondary study-toc-item" aria-current={index === position ? "page" : undefined} onClick={() => go(index)}>
+            第 {index + 1} 頁　{studyPageLabel(item)}{index === position && "（目前頁面）"}
+          </button>
+        </li>)}
+      </ol>
+    </details>
     <article className="card study-card">
       <h1 ref={heading} tabIndex={-1}>{page.title}</h1>
       {page.notice && <p className="source-notice">{page.notice}</p>}

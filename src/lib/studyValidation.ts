@@ -12,6 +12,7 @@ export function validateStudyCollections(collections: StudyCollection[], assetEx
       if (!page.id.trim() || pages.has(page.id)) errors.push(`${collection.id}：頁面識別碼無效或重複`);
       pages.add(page.id);
       if (!page.title.trim() || !page.imageAlt.trim() || !page.source.file.trim()) errors.push(`${page.id}：缺少名稱、替代文字或來源`);
+      if (page.tocLabel !== undefined && (typeof page.tocLabel !== "string" || !page.tocLabel.trim())) errors.push(`${page.id}：複習目錄名稱無效`);
       if (!/^\/source-images\/environment\/img_\d+\.jpg$/.test(page.image) || !assetExists(page.image)) errors.push(`${page.id}：原始圖片不存在`);
       if (page.source.page !== undefined && (!Number.isInteger(page.source.page) || page.source.page <= 0)) errors.push(`${page.id}：來源頁碼無效`);
       if (!page.sections.length || page.sections.some((section) => !section.text.trim())) errors.push(`${page.id}：缺少轉錄文字`);

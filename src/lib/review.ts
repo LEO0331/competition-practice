@@ -35,7 +35,8 @@ export function parseReviewSession(set: QuestionSet, raw: string | null): Review
     return {
       version: 1,
       questionIds: subset.questions.map((q) => q.id),
-      progress: parseProgress(subset, JSON.stringify(progress)),
+      // Review always follows source order, independently of the full session.
+      progress: parseProgress(subset, JSON.stringify({ ...progress, questionOrder: undefined })),
     };
   } catch { return null; }
 }
