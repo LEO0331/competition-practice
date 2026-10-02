@@ -72,11 +72,6 @@ p + p { margin-top: 12px; }
 .study-page-jump label { display: block; margin-bottom: 8px; font-weight: 700; }
 .study-page-select { display: block; width: 100%; min-width: 0; max-width: 100%; min-height: 56px; padding: 12px; font: inherit; color: var(--text); background: var(--surface); border: 2px solid var(--border); border-radius: 8px; }
 .study-page-select:focus-visible { outline: 3px solid #8d4d00; outline-offset: 4px; }
-.study-toc { margin-bottom: 24px; }
-.study-toc summary { min-height: 56px; padding: 12px 16px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; font-weight: 700; background: var(--surface); }
-.study-toc summary:focus-visible { outline: 3px solid #8d4d00; outline-offset: 4px; }
-.study-toc-list { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 10px; }
-.study-toc-item { width: 100%; justify-content: flex-start; text-align: left; white-space: normal; overflow-wrap: anywhere; }
 .skip-link { position: absolute; top: -120px; left: 16px; background: #fff; padding: 12px; z-index: 2; }
 .skip-link:focus { top: 12px; }
 @media (max-width: 600px) {

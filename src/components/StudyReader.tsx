@@ -31,16 +31,6 @@ export function StudyReader({ collection }: { collection: StudyCollection }) {
         {collection.pages.map((item, index) => <option key={item.id} value={index}>{index + 1} — {studyPageLabel(item)}</option>)}
       </select>
     </div>
-    <details className="study-toc">
-      <summary>複習目錄</summary>
-      <ol className="study-toc-list">
-        {collection.pages.map((item, index) => <li key={item.id}>
-          <button type="button" className="button secondary study-toc-item" aria-current={index === position ? "page" : undefined} onClick={() => go(index)}>
-            第 {index + 1} 頁　{studyPageLabel(item)}{index === position && "（目前頁面）"}
-          </button>
-        </li>)}
-      </ol>
-    </details>
     <article className="card study-card">
       <h1 ref={heading} tabIndex={-1}>{page.title}</h1>
       {page.notice && <p className="source-notice">{page.notice}</p>}

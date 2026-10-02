@@ -114,6 +114,21 @@
         "All checks and375px flows pass"
       ],
       "evidence": "2026-10-02: implementation verified locally. Native48-pageTOC/select save andfocus jumps;20 source-derived navigation labels only. OptionalquestionOrder persists one Fisher-Yates order on existingv1key; protected resets and source-order review. Validation/lint/typecheck/50tests/build/verify/269exportrefs passed; renamedpath passed. Browser375px verified jumps+reload, randomcancel/resume,30unique questions/completion/review independence/freshattempt. Publication not performed: auto-review requires explicit approval to commit/push main. User explicitly approved committing/pushing main; publication proceeding."
+    },
+    {
+      "id": "dropdown-only-study-navigation",
+      "name": "Keep one mobile study jump control",
+      "description": "Remove duplicate expandable directory and its CSS while preserving the native dropdown and saved position behavior.",
+      "dependencies": [
+        "study-navigation-random-practice"
+      ],
+      "status": "done",
+      "acceptance_criteria": [
+        "Only dropdown remains",
+        "Page selection still saves and focuses source heading",
+        "No source or storage changes"
+      ],
+      "evidence": "2026-10-02: removed duplicateTOC and5unused CSS rules; kept native dropdown/helper/key unchanged.10study tests passed before edit; npm run verify passed50tests/validation/lint/typecheck/build/269assets.375px dropdown jump focusesH1, page2 survives reload, no horizontal overflow."
     }
   ],
   "active_feature": null

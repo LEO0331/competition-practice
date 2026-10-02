@@ -14,4 +14,4 @@
 
 圖片題目可設定 `source.kind: "image"`，保留原檔名、`questionLabel` 及 `images` 原圖路徑；沒有可靠頁碼時省略 `page`，不假造 PDF 頁碼。只有四個完整選項及明示答案的題目才納入作答題庫。純筆記或圖卡使用 `src/data/studyCollections/` 的 `StudyCollection`，登錄後自動出現在首頁「複習資料」。原圖保存在 `public/source-images/environment/`，逐檔清單及轉錄問題見 `src/data/imageSources.ts`、`docs/IMAGE_SOURCE_REVIEW.md`。
 
-`StudyPage.tocLabel` 為可選的目錄／跳頁標籤，只用在來源標題較籠統時，簡短概括該頁已有內容。沒有設定時沿用 `title`；來源標題與正文不修改，也不需要新增分類。
+`StudyPage.tocLabel` 為可選的跳頁選單標籤，只用在來源標題較籠統時，簡短概括該頁已有內容。沒有設定時沿用 `title`；來源標題與正文不修改，也不需要新增分類。

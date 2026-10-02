@@ -2,24 +2,24 @@
 
 ## Current Objective
 
-Study navigation and saved random practice are complete and locally verified. No active implementation feature. The user explicitly approved commit/push to main; publication is authorized. Baseline305b84b; content remains241 questions and48 review pages.
+Dropdown-only study navigation is implemented and verified. No active feature. Baselinef1abc96; the user requested removing the duplicate directory while keeping the dropdown.
 
 ## Verification Evidence
 
-2026-10-02 validation/lint/typecheck/50 tests/build/npm run verify and269 asset references passed. Renamed-prefix export passed.375px browser verified focused/saved study jumps, random reload/cancel,30 distinct-question completion, independent source-ordered review and a fresh random attempt.
+2026-10-02:10study tests before removal and full npm run verify after removal passed:50tests, validation/lint/typecheck/build,269export references.375px selection focusesH1, page2 resumes after refresh, no duplicate directory or horizontal scrolling.
 
 ## Files Changed
 
-Reader/practice/cards; progress/review/study/shuffle helpers; study type/validation plus20 navigation labels; scoped CSS; tests; README/docs and state. No source content or choice order changed.
+StudyReader.tsx directory removal, globals.css unused-rule removal, README and data-guide wording, feature/progress/handoff state. All source content and storage helpers/keys unchanged.
 
 ## Blockers / Risks
 
-The initial publication attempt was rejected for missing explicit authorization. The user then answered "Yes, publish to main", resolving that condition. No implementation blocker. Physical installation and actual browser zoom remain previous-session gaps.
+No new code blocker or migration. Physical mobile installation/actual zoom remain previous-session gaps. Check Git/Actions before asserting live publication.
 
 ## Next Session Startup
 
-Read AGENTS.md, state/progress and Git status/history. Existing v1 keys stay unchanged; optional questionOrder records one full-session permutation. Review remains source-ordered and independent. tocLabel is navigation-only.
+Read AGENTS.md/state/progress; inspect Git status/history. Keep native dropdown and previous/next page buttons as the only review navigation controls. Do not reintroduce the directory without a new user request.
 
 ## Recommended Next Step
 
-Complete/check the authorized push and Actions deployment, then report actual live status. No further product scope is pending; re-run checks only if new code changes warrant it.
+Verify the published correction, then wait for the next concrete request; do not add another navigation control.

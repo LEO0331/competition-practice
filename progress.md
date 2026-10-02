@@ -78,3 +78,9 @@ Do not infer a new product feature from this harness or rerun completed work wit
 ### Publication approval
 
 The user directly answered "Yes, publish to main" to the explicit commit/push/deployment question. The prior missing-authorization condition is resolved; publishing this verified update is authorized. Check the final Git/Actions state for completion.
+
+## Session — Dropdown-Only Study Navigation (2026-10-02)
+
+- User chose the native dropdown as the sole mobile page-jump control. Removed the duplicate複習目錄 block and5unused CSS rules; updated README/data-guide wording. Source data, saved notes key, navigation summaries and jump/focus helper unchanged.
+- Checks:10existing study regression tests passed before deletion; npm run verify PASS (50tests, validation/lint/typecheck/build and269export references).375px browser verified no directory or horizontal overflow, select focusesH1 and page2 resumes after reload.
+- Files: StudyReader.tsx, globals.css, README.md, ADDING_QUESTION_SET.md and harness state. No new dependency, risk or migration. Publishing this correction follows the user's approved navigation-update workflow; final remote status must be checked.
