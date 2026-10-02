@@ -2,24 +2,24 @@
 
 ## Current Objective
 
-Dropdown-only study navigation is implemented and verified. No active feature. Baselinef1abc96; the user requested removing the duplicate directory while keeping the dropdown.
+Targeted prepublication mobile polish completed locally; noactivefeature. Baselineb1f4564. Two application files changed: globals.css andlayout.tsx; no source content, behavior, storage or dependency change. Changes are not committed/published.
 
 ## Verification Evidence
 
-2026-10-02:10study tests before removal and full npm run verify after removal passed:50tests, validation/lint/typecheck/build,269export references.375px selection focusesH1, page2 resumes after refresh, no duplicate directory or horizontal scrolling.
+2026-10-02 npm run verify passed validation/lint/typecheck/50tests/build/269assets. Homepage reviewed375/390/430/768: nooverflow, brand52px, headerheight75mobile/87tablet unchanged, body20px retained.375quiz images andstudy poster preserveaspect; dropdown56px. 2xCSS magnification reviewed6representative states without horizontal overflow; NOT actual200% browserzoom.
 
-## Files Changed
+## Changes and Decisions
 
-StudyReader.tsx directory removal, globals.css unused-rule removal, README and data-guide wording, feature/progress/handoff state. All source content and storage helpers/keys unchanged.
+Safe-area CSS for all4edges, viewport-fit=cover without zoom restrictions, text-size-adjust100%, brandtouch target52 andsafe buttonwrapping. Existing hierarchy/randomcontrols/dropdown/images/nav workwell andstay unchanged. Directory remains removed; nosticky/bottomnav/features added.
 
-## Blockers / Risks
+## Remaining Device Checks
 
-No new code blocker or migration. Physical mobile installation/actual zoom remain previous-session gaps. Check Git/Actions before asserting live publication.
+Actual native200% browserzoom, Safari text behavior andphysical iPhone notch/homeindicator not tested. IAB zoom shortcuts didnotchangezoom andnozoomcapability is exposed. Temporary QA2xCSS fixture is ignored under tmp/mobile-polish, not application code.
 
 ## Next Session Startup
 
-Read AGENTS.md/state/progress; inspect Git status/history. Keep native dropdown and previous/next page buttons as the only review navigation controls. Do not reintroduce the directory without a new user request.
+Read AGENTS.md/state/progress and Gitdiff. This is a completedlocal prepublicationreview, not a deployedresult. Re-runchecks only ifchangeswarrant. Respect the user's dropdown-only decision and preserve source/progress invariants.
 
 ## Recommended Next Step
 
-Verify the published correction, then wait for the next concrete request; do not add another navigation control.
+Have actualdevice/nativezoom checks performed ifavailable, then publish only within direct user authorization. Do not claim the CSSmagnification fixture as realbrowserzoom verification.

@@ -3,7 +3,7 @@
 ## Current State
 
 **Last Updated:** 2026-10-02 (Asia/Taipei)
-**Active Feature:** none — study-navigation-random-practice is done; publication approved.
+**Active Feature:** none — mobile-polish is done locally.
 **Application baseline:** 7e47cd9; repository `LEO0331/competition-practice`.
 
 ## What's Done
@@ -84,3 +84,12 @@ The user directly answered "Yes, publish to main" to the explicit commit/push/de
 - User chose the native dropdown as the sole mobile page-jump control. Removed the duplicate複習目錄 block and5unused CSS rules; updated README/data-guide wording. Source data, saved notes key, navigation summaries and jump/focus helper unchanged.
 - Checks:10existing study regression tests passed before deletion; npm run verify PASS (50tests, validation/lint/typecheck/build and269export references).375px browser verified no directory or horizontal overflow, select focusesH1 and page2 resumes after reload.
 - Files: StudyReader.tsx, globals.css, README.md, ADDING_QUESTION_SET.md and harness state. No new dependency, risk or migration. Publishing this correction follows the user's approved navigation-update workflow; final remote status must be checked.
+
+## Session — Prepublication Mobile Polish (2026-10-02)
+
+- Actual issue: brand hit rectangle27px, whileotherimportant controls52px+. Increasedbrand min-height to52; headercontainerflex and adjusted verticalpadding retain measuredheader75px mobile/87px tablet. Body20px, question28px, button21px andchoice22px preserved.
+- CSS safe areas: left/right max(gutter,envinset) avoids extra padding on normalbrowsers; header adds top inset andfooter adds bottom inset. Viewport-fit=cover added with no zoom restriction. html text-size-adjust100% prevents unexpected Safari text inflation; systemfonts retained.
+- Added safe button wrapping/maxwidth/minwidth only. Existing image aspect/maxwidth, primarycontinue/secondaryreset hierarchy, stackedmobileactions, randomlabel anddropdown are already sound. Directory stays removed. No sticky/bottom navigation, new feature/dependency/backend/offline code.
+- Checks: baseline andpostchange npm run verify PASS — validation/lint/typecheck/50tests/build/269exportreferences.375/390/430/768 homepage nooverflow; brand52, primaryactions59.5, normalheaderheight unchanged.375image choices allloaded/aspectpreserved; select56, posteraspectpreserved andoriginal-link retained.
+- 2xCSS magnification (ignoredtemporarypreview query) exercised homepage, restartconfirmation, answerresult, unansweredquestion, randompractice andstudyreader: nohorizontaloverflow andminimumphysicaltarget104px. This is an approximation, NOT actualbrowserzoom. Zoomshortcuts hadnoeffect; IAB exposesnozoomcapability. Actual200%browserzoom andphysicalSafari/notch/homeindicator behavior remain unverified.
+- Application files changed: globals.css andlayout.tsx only. Statefiles updated. No sourcecontent/storage/behavior changes. Result is local, uncommitted andnotpublished, consistent with the requested prepublication review.

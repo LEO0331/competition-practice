@@ -129,6 +129,24 @@
         "No source or storage changes"
       ],
       "evidence": "2026-10-02: removed duplicateTOC and5unused CSS rules; kept native dropdown/helper/key unchanged.10study tests passed before edit; npm run verify passed50tests/validation/lint/typecheck/build/269assets.375px dropdown jump focusesH1, page2 survives reload, no horizontal overflow."
+    },
+    {
+      "id": "mobile-polish",
+      "name": "Targeted safe-area and mobile accessibility polish",
+      "description": "Preserve the current mobile design while protecting safe-area edges, Safari text sizing and header touch target.",
+      "dependencies": [
+        "dropdown-only-study-navigation"
+      ],
+      "status": "done",
+      "acceptance_criteria": [
+        "Safe-area top/bottom/left/right CSS without JS",
+        "Zoom unrestricted and text sizes preserved",
+        "Important controls remain large",
+        "375/390/430/768 layouts reviewed",
+        "Magnification limitations reported honestly",
+        "All existing gates pass"
+      ],
+      "evidence": "2026-10-02: targetedCSS/layout polish verified locally. Safe-area4edges, viewport-fit=cover, text-size-adjust100%, headerbrand27->52px whileheaderheight retained;fonts unchanged.50tests/validation/lint/typecheck/build/verify/269refs pass.375/390/430/768 home,375imagequiz/result/select/poster and2xCSS magnification of6representative states reviewed without horizontal overflow. Native200% browserzoom and physicaliOSsafeareas unverified; no dependency/features/sticky nav. Local/uncommitted prepublication result."
     }
   ],
   "active_feature": null
