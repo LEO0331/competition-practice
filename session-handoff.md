@@ -2,24 +2,24 @@
 
 ## Current Objective
 
-Targeted prepublication mobile polish completed locally; noactivefeature. Baselineb1f4564. Two application files changed: globals.css andlayout.tsx; no source content, behavior, storage or dependency change. Changes are not committed/published.
+CI/toolchainrepair is complete locally; noactiveimplementationfeature. Baselinea1305bb (mergedTS7/ESLint10). User explicitly approved publishing the fix after the initial rejection; commit/push and remote verification are proceeding.
 
 ## Verification Evidence
 
-2026-10-02 npm run verify passed validation/lint/typecheck/50tests/build/269assets. Homepage reviewed375/390/430/768: nooverflow, brand52px, headerheight75mobile/87tablet unchanged, body20px retained.375quiz images andstudy poster preserveaspect; dropdown56px. 2xCSS magnification reviewed6representative states without horizontal overflow; NOT actual200% browserzoom.
+2026-10-02 npm install+npm ci succeeded with0auditvulnerabilities. npm run verify passed validation/lint/typecheck/50tests/build/269exportrefs. YAMLparser/configassertions andlockedversions checked. ESLint10React getFilenamecrash reproducedafterTSrollback.
 
-## Changes and Decisions
+## Files Changed
 
-Safe-area CSS for all4edges, viewport-fit=cover without zoom restrictions, text-size-adjust100%, brandtouch target52 andsafe buttonwrapping. Existing hierarchy/randomcontrols/dropdown/images/nav workwell andstay unchanged. Directory remains removed; nosticky/bottomnav/features added.
+package.json,package-lock.json,.github/dependabot.yml andstate/progress/handoff. No application/source/image/workflow changes. Supportedcurrenttools TS5.9.3 andESLint9.39.5; unrelatedNode typings26 preserved.
 
-## Remaining Device Checks
+## Risks and Next Updates
 
-Actual native200% browserzoom, Safari text behavior andphysical iPhone notch/homeindicator not tested. IAB zoom shortcuts didnotchangezoom andnozoomcapability is exposed. Temporary QA2xCSS fixture is ignored under tmp/mobile-polish, not application code.
+CurrentTS/API andNextReact/import/a11y plugins donotsupportTS7/ESLint10. Dependabotskips onlythoseversionlines; monthlyminor/patchgroupsunchanged. ESLint9emitsEOLnotice whileaudit0; revisitmajorignoreswhenwholelintstackiscompatible.
 
 ## Next Session Startup
 
-Read AGENTS.md/state/progress and Gitdiff. This is a completedlocal prepublicationreview, not a deployedresult. Re-runchecks only ifchangeswarrant. Respect the user's dropdown-only decision and preserve source/progress invariants.
+Checklatestdirectuserapproval,Gitstatus/history andprogress. Do notpushmainuntilauthorized. Onceapproved, Lorecommit+push andwaitforactualActionsCI/Pages status; norepeatchecksneededunlesscodechanges. Do notclaimlocalpassasremoteCIevidence.
 
 ## Recommended Next Step
 
-Have actualdevice/nativezoom checks performed ifavailable, then publish only within direct user authorization. Do not claim the CSSmagnification fixture as realbrowserzoom verification.
+Publication was directly approved. The verification-ready repair is reviewable; auto-review rejectionmustnotbebypassed. Newapprovaloruserdecisionresolvespublication scope.

@@ -147,6 +147,23 @@
         "All existing gates pass"
       ],
       "evidence": "2026-10-02: targetedCSS/layout polish verified locally. Safe-area4edges, viewport-fit=cover, text-size-adjust100%, headerbrand27->52px whileheaderheight retained;fonts unchanged.50tests/validation/lint/typecheck/build/verify/269refs pass.375/390/430/768 home,375imagequiz/result/select/poster and2xCSS magnification of6representative states reviewed without horizontal overflow. Native200% browserzoom and physicaliOSsafeareas unverified; no dependency/features/sticky nav. Local/uncommitted prepublication result."
+    },
+    {
+      "id": "ci-toolchain-compatibility",
+      "name": "Restore compatible compiler and lint tooling",
+      "description": "Fix failing main CI after merged TypeScript7/ESLint10 upgrades and prevent repeating incompatible proposals.",
+      "dependencies": [
+        "agent-harness"
+      ],
+      "status": "done",
+      "acceptance_criteria": [
+        "npm ci resolves a compatible locked toolchain",
+        "Lint no longer crashes",
+        "All existing verification gates pass",
+        "No application or source content changes",
+        "Only incompatible compiler/linter major lines skipped"
+      ],
+      "evidence": "2026-10-02: TypeScript5.9.3/ESLint9.39.5 restored; lock regenerated; npm ci +npm run verify pass validation/lint/typecheck/50tests/build/269assets;0auditvulnerabilities. ESLint10 separately reproduced react/display-name getFilename failure. Dependabot skips TS>=7/ESLint>=10 only; YAMLassertions pass. No application/source changes. Local/uncommitted; commit+pushmain awaiting explicit approval after auto-review rejection."
     }
   ],
   "active_feature": null

@@ -5,6 +5,16 @@ updates:
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 5
+    # TypeScript 7 lacks the compiler API required by the current lint tooling.
+    # Revisit when typescript-eslint supports the native TypeScript compiler.
+    # Current Next.js React/import/accessibility plugins also require ESLint 9.
+    ignore:
+      - dependency-name: "typescript"
+        versions:
+          - ">=7.0.0"
+      - dependency-name: "eslint"
+        versions:
+          - ">=10.0.0"
     groups:
       minor-and-patch:
         patterns:

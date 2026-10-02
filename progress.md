@@ -93,3 +93,15 @@ The user directly answered "Yes, publish to main" to the explicit commit/push/de
 - Checks: baseline andpostchange npm run verify PASS — validation/lint/typecheck/50tests/build/269exportreferences.375/390/430/768 homepage nooverflow; brand52, primaryactions59.5, normalheaderheight unchanged.375image choices allloaded/aspectpreserved; select56, posteraspectpreserved andoriginal-link retained.
 - 2xCSS magnification (ignoredtemporarypreview query) exercised homepage, restartconfirmation, answerresult, unansweredquestion, randompractice andstudyreader: nohorizontaloverflow andminimumphysicaltarget104px. This is an approximation, NOT actualbrowserzoom. Zoomshortcuts hadnoeffect; IAB exposesnozoomcapability. Actual200%browserzoom andphysicalSafari/notch/homeindicator behavior remain unverified.
 - Application files changed: globals.css andlayout.tsx only. Statefiles updated. No sourcecontent/storage/behavior changes. Result is local, uncommitted andnotpublished, consistent with the requested prepublication review.
+
+## Session — CI Toolchain Repair (2026-10-02)
+
+- Fast-forwarded cleancheckout to maina1305bb, whichmerged DependabotTS7.0.2 andESLint10.11.0 despite failingchecks. TS7 lacksAPIexpectedbycurrenttypescript-eslint (peer>=4.8.4<6.1); TSrollback thenreproducedESLint10React display-name crash (removedgetFilenameAPI).
+- Restoredtypescript~5.9.3 andeslint^9.39.5; regeneratedlock. PreservedNode typings26 andotherunrelatedupdates. TargetedDependabotignoresTS>=7/ESLint>=10 preventrepeatproposals whilemonthlygroups/limits remain.
+- Actualchecks: npm install thennpm ci succeeded,0auditvulnerabilities. npm run verify PASS: validation/lint/typecheck/50tests/build/269exportrefs. YAMLparsed andskips asserted; everylockedTS/ESLintversion confirmed; gitdiffcheckpass. No application/source/workflow change.
+- Temporarytradeoff: ESLint9 emits EOLdeprecationnotice; revisitignoredmajorlines whenNextlintplugins supportnewAPIs. DualTypeScript7+6 compileraliases rejectedas unnecessarycomplexity.
+- PublishNOTperformed. Automaticapprovalreview rejectedcombinedcommit/pushmain becausecurrentrequestdidnotexplicitlyauthorizepublication. A directapprovalquestion ispending. Do notbypassreview orclaimGitHubCIrepaireduntilpublishedandchecked.
+
+### Publication approval
+
+User directly answered "Yes, publish the fix" to commit/pushmain andtriggerCI/Pages. The missingauthorizationconditionisresolved. Publicationproceeding; verifyactualActionsstatus.
