@@ -41,3 +41,16 @@ test('validation accepts a new independent image-only set', () => {
   set.questions[0].text = ''; set.questions[0].image = '/question-assets/future/q.png'; set.questions[0].imageAlt = '原始題目圖片';
   assert.deepEqual(validateQuestionSets([set], () => true), []);
 });
+
+test('scanned PDF provenance supports independent source folders while rejecting unsafe paths', () => {
+  const set = structuredClone(questionSets[0]);
+  set.id = 'scan-path-check'; set.questions = [set.questions[0]];
+  const q = set.questions[0];
+  q.source.images = ['/source-images/2025-national-jintounao/page-01.jpg'];
+  assert.deepEqual(validateQuestionSets([set], () => true), []);
+  assert.ok(validateQuestionSets([set], path => !path.startsWith('/source-images/')).some(e => e.includes('原始圖片')));
+  for (const path of ['/source-images/../secret.jpg', '/source-images/scans/../page.jpg', '/source-images/scans/page.jpg?answer=1', 'https://example.com/page.jpg', '/source-images/scans/page.svg']) {
+    q.source.images = [path];
+    assert.ok(validateQuestionSets([set], () => true).some(e => e.includes('原始圖片')), path);
+  }
+});

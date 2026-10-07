@@ -36,7 +36,7 @@ export function validateQuestionSets(sets: QuestionSet[], assetExists?: (path: s
       if (!nonempty(q.source.file) || (pageRequired && q.source.page === undefined) ||
           (q.source.page !== undefined && (!Number.isInteger(q.source.page) || q.source.page <= 0))) errors.push(`${label}：來源資訊無效`);
       for (const original of q.source.images ?? []) {
-        if (!/^\/source-images\/environment\/img_\d+\.jpg$/.test(original) || (assetExists && !assetExists(original)))
+        if (!/^\/source-images\/[a-z0-9-]+\/[a-z0-9_-]+\.(jpg|jpeg|png|webp)$/.test(original) || (assetExists && !assetExists(original)))
           errors.push(`${label}：原始圖片不存在或路徑無效`);
       }
       if (q.referenceUrl) {

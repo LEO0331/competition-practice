@@ -2,24 +2,24 @@
 
 ## Current Objective
 
-CI/toolchainrepair is complete locally; noactiveimplementationfeature. Baselinea1305bb (mergedTS7/ESLint10). User explicitly approved publishing the fix after the initial rejection; commit/push and remote verification are proceeding.
+None. The four requested scan folders are fully integrated locally. Started from a clean checkout at c802a01. User explicitly authorized commit and push on 2026-10-07. The verified change is being published to main; inspect Git status/history and remote Actions for the current publication outcome.
 
-## Verification Evidence
+## Result and Evidence
 
-2026-10-02 npm install+npm ci succeeded with0auditvulnerabilities. npm run verify passed validation/lint/typecheck/50tests/build/269exportrefs. YAMLparser/configassertions andlockedversions checked. ESLint10React getFilenamecrash reproducedafterTSrollback.
+Six unchanged PDFs, 36 upright source pages, eight independent sets adding 472 questions, and four review pages retaining nine incomplete 2023 rows. Source explanations retained; five partly unclear explanations explicitly marked. Existing datasets, progress and UI unchanged; no new dependencies.
 
-## Files Changed
+On 2026-10-07, npm run verify passed validation, lint, typecheck, 56 tests, static build and 862 export references. Next.js requires host execution for Windows path resolution in this sandbox. Actual375px Chromium checks passed for all eight sets: visible focus,52px+ choices, answer locking, originals hidden before answering, upright images, no overflow and reload resume. Review page4 resume and restart cancellation passed; zero page errors. git diff --check passed. Screenshots/results are in ignored tmp/new-scans/; visual verdict94/pass is recorded in ignored .omx/state/.
 
-package.json,package-lock.json,.github/dependabot.yml andstate/progress/handoff. No application/source/image/workflow changes. Supportedcurrenttools TS5.9.3 andESLint9.39.5; unrelatedNode typings26 preserved.
+## Changed Files
 
-## Risks and Next Updates
+Eight question files and registry;112-summary study collection and registry;36 images in four public/source-images folders;six PDFs and SHA-256 manifest in sources/scanned-practice;source-path validators and regression tests;README, source-review index and five detailed reviews;feature/progress/handoff records. No UI, storage or deployment configuration changes.
 
-CurrentTS/API andNextReact/import/a11y plugins donotsupportTS7/ESLint10. Dependabotskips onlythoseversionlines; monthlyminor/patchgroupsunchanged. ESLint9emitsEOLnotice whileaudit0; revisitmajorignoreswhenwholelintstackiscompatible.
+## Source Limitations
 
-## Next Session Startup
+2023 rows53,68,169,176,179,181,184,185,191 remain review-only because of clipping or unclear text. Partial explanations128,163,166,186,189 mark unclear fragments. The2024 AQI row preserves printed answer2 with handwritten4 noted. One supplementary URL token is unreadable. See docs/source-review.md. Do not invent missing source detail or generatively redraw text. Original scans contain answers and must remain hidden before answering.
 
-Checklatestdirectuserapproval,Gitstatus/history andprogress. Do notpushmainuntilauthorized. Onceapproved, Lorecommit+push andwaitforactualActionsCI/Pages status; norepeatchecksneededunlesscodechanges. Do notclaimlocalpassasremoteCIevidence.
+Physical devices, native zoom and live publication were not checked. Browser progress remains local.
 
-## Recommended Next Step
+## Remaining Work / Recommended Next Step
 
-Publication was directly approved. The verification-ready repair is reviewable; auto-review rejectionmustnotbebypassed. Newapprovaloruserdecisionresolvespublication scope.
+No implementation remains. Commit/push is authorized; inspect status/history and verify actual CI/Pages results after publication. Local evidence does not prove live publication. More legible originals could resolve the documented gaps in a future task.

@@ -2,8 +2,8 @@
 
 ## Current State
 
-**Last Updated:** 2026-10-02 (Asia/Taipei)
-**Active Feature:** none — mobile-polish is done locally.
+**Last Updated:** 2026-10-07 (Asia/Taipei)
+**Active Feature:** none — four-scanned-source-groups is done locally.
 **Application baseline:** 7e47cd9; repository `LEO0331/competition-practice`.
 
 ## What's Done
@@ -105,3 +105,17 @@ The user directly answered "Yes, publish to main" to the explicit commit/push/de
 ### Publication approval
 
 User directly answered "Yes, publish the fix" to commit/pushmain andtriggerCI/Pages. The missingauthorizationconditionisresolved. Publicationproceeding; verifyactualActionsstatus.
+
+## Session — Four Scanned Source Folders (2026-10-07)
+
+- Started clean at c802a01 with Node 24.14.0. Current baseline verification passed 50 tests and 269 export references. Next.js Windows path resolution required host execution outside the restricted sandbox; no tooling changes were needed.
+- Preserved six PDFs unchanged with a SHA-256 manifest in sources/scanned-practice/. Visually inspected all 36 pages and rotated them upright at original resolution. Eight independent sets add 472 questions (191/24/20/45/65/45/22/60), preserving source labels, pages, answers and explanations. Existing datasets, assets, progress and UI are unchanged; no dependencies added.
+- Four review pages retain nine incomplete 2023 rows: 53,68,169,176,179,181,184,185,191. Five partial explanations explicitly mark unclear text. A supplementary URL token and an AQI printed2/handwritten4 conflict remain documented. Source clipping cannot be recovered through sharpening; no text was invented or generatively redrawn.
+- Readable transcription avoids miniature table reading. Two reviewers confirmed the city paper's blurry option from an enlarged image; it now displays as text. Full scans appear only after answering or in explicit review material. The scanned national paper overlaps the existing official version but differs in wording, order and pages; a new ID protects existing progress.
+- Changed: eight question files and registry; one review collection and registry; 36 source JPEGs; six PDFs and manifest; two source-path validators; dataset/study/scanned-source regression tests; README, source-review index and five review documents; feature/progress/handoff records. Validators now accept safe independent source folders, with traversal, external URL and missing-asset checks.
+- Final npm run verify passed validation, lint, typecheck, 56 tests, static build and 862 export references. git diff --check passed. Actual 375px Chromium checks passed for all eight sets: choices at least52px, visible focus, locked answers, originals hidden before answering, upright images loaded, no overflow and question2 resume. Review page4 resume and restart cancellation passed; zero page errors. Screenshots/results are in ignored tmp/new-scans/; visual verdict94/pass is in ignored .omx/state/four-scanned-source-groups/ralph-progress.json.
+- Local and uncommitted; not pushed or deployed. Physical devices, native browser zoom and live publication remain untested. No pending implementation or permission question.
+
+### Publication authorization — 2026-10-07
+
+User explicitly requested commit and push. The verified scan additions will be committed to main using Lore trailers and pushed to origin. Remote CI/Pages must be checked separately; local verification does not establish deployment.

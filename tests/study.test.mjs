@@ -79,6 +79,17 @@ test('review validation detects missing images, text and duplicate page IDs', ()
   bad.pages[1].id=bad.pages[0].id; bad.pages[0].sections=[];
   assert.ok(validateStudyCollections([bad],()=>false).length>=3);
 });
+
+test('study provenance accepts scanned collections but rejects traversal and external assets', () => {
+  const copy = structuredClone(collection);
+  copy.pages = [copy.pages[0]];
+  copy.pages[0].image = '/source-images/2023-summary/page-05-0.jpg';
+  assert.deepEqual(validateStudyCollections([copy], () => true), []);
+  for (const path of ['/source-images/../secret.jpg', '/source-images/scans/../page.jpg', 'https://example.com/page.jpg', '/source-images/scans/page.jpg?x=1']) {
+    copy.pages[0].image = path;
+    assert.ok(validateStudyCollections([copy], () => true).some(error => error.includes('原始圖片')), path);
+  }
+});
 test('image question provenance does not fabricate PDF page numbers', () => {
   assert.equal(questionSourceLabel({file:'IMG_9603.JPG',kind:'image'}),'來源：IMG_9603.JPG');
   assert.equal(questionSourceLabel({file:'source.pdf',page:2}),'來源：source.pdf，第 2 頁');

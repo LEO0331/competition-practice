@@ -164,6 +164,23 @@
         "Only incompatible compiler/linter major lines skipped"
       ],
       "evidence": "2026-10-02: TypeScript5.9.3/ESLint9.39.5 restored; lock regenerated; npm ci +npm run verify pass validation/lint/typecheck/50tests/build/269assets;0auditvulnerabilities. ESLint10 separately reproduced react/display-name getFilename failure. Dependabot skips TS>=7/ESLint>=10 only; YAMLassertions pass. No application/source changes. Local/uncommitted; commit+pushmain awaiting explicit approval after auto-review rejection."
+    },
+    {
+      "id": "four-scanned-source-groups",
+      "name": "2023–2025 scanned practice materials",
+      "description": "Faithfully add all six scanned PDFs in four supplied folders and improve scan orientation and legibility without changing content.",
+      "dependencies": [
+        "additional-pdf-question-sets"
+      ],
+      "status": "done",
+      "acceptance_criteria": [
+        "All 36 scanned pages visually checked and source-accounted",
+        "Complete explicit-answer MCQs retained with provenance and explanations",
+        "Required diagrams readable with no premature answer disclosure",
+        "Existing datasets and progress unchanged",
+        "Verification and mobile source/answer/resume checks pass"
+      ],
+      "evidence": "2026-10-07: all6 PDFs/36pages preserved byte-for-byte withSHA256 manifest;8 independent sets add472 questions,4 review pages retain9 incomplete2023 rows. All36 upright scans visually reviewed; readable source explanations retained,5 partly unclear2023 explanations marked. Second audits fixed transcription discrepancies without factual rewriting. npm run verify passed validation/lint/typecheck/56tests/staticbuild/862exportrefs. Actual375px headlessChromium checked all8 sets: visiblefocus,52px+choices,lockedanswers,hiddenpreansweroriginals,uprightimages,nooverflow,resume; notespage4resume andrestartcancel pass;0pageerrors. Existing datasets/storage/UI unchanged. User authorized commit and push on 2026-10-07; publication proceeding. Local checks do not confirm remote deployment; physicaldevice/nativezoom untested."
     }
   ],
   "active_feature": null
