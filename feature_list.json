@@ -248,6 +248,22 @@
         "Keyboard and 375px checks pass; existing progress and review preserved"
       ],
       "evidence": "2026-10-07: Default-off 顯示原始圖片 checkbox automatically shows original scans only after answering. Global browser preference uses a separate key; essential question/choice imagery remains. Baseline and final npm run verify passed validation/lint/typecheck/86tests/static build/789 export references. Actual375px Chromium passed keyboard focus/toggle, 56px target, automatic next-question display, preanswer hiding, reload/cross-set on/off persistence, unchanged full progress, answer locking, essential images, blocked storage and no overflow/page errors. Existing review/resume/reset browser regression also passed. Visual verdict95/pass. User authorized commit and push on 2026-10-07; publication proceeding. Physical devices/native zoom untested; remote deployment must be checked separately."
+    },
+    {
+      "id": "central-original-images",
+      "name": "Central homepage original-image control",
+      "description": "Move the original-image preference beside the homepage title and remove per-question controls.",
+      "dependencies": [
+        "optional-original-images"
+      ],
+      "status": "done",
+      "acceptance_criteria": [
+        "One compact control beside homepage title controls every question set",
+        "Existing preference and saved answers preserved",
+        "No controls on practice pages; originals only shown after answering",
+        "375px layout, keyboard and navigation verified"
+      ],
+      "evidence": "2026-10-07: Single compact 顯示原圖 checkbox beside homepage title controls all sets; practice controls removed. Existing browser preference key retained through shared subscription; browser session fallback supports blocked writes during client navigation. Baseline and final npm run verify passed validation/lint/typecheck/86tests/static build/789 export references. Actual375/880px Chromium passed placement, keyboard focus,52px label target, default-off/on/off persistence, cross-set and reload behavior, postanswer-only imagery, essential images, unchanged progress, blocked read/write and write-only navigation. Existing resume/random/review/reset checks passed; no overflow or page errors. Visual verdict96/pass. User authorized commit and push on 2026-10-07; publication proceeding. Physical devices/native zoom untested; remote deployment must be checked separately."
     }
   ],
   "active_feature": null

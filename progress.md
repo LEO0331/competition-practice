@@ -168,3 +168,15 @@ A public375px browser verified11ROC cards with only the requested official113nat
 ### Publication authorization — 2026-10-07
 
 User explicitly requested commit and push of the verified optional-original-images change. Commit to main using Lore trailers and push to origin. GitHub Actions/Pages status must be checked separately; successful push alone does not establish deployment.
+
+## Session — Central Homepage Original-Image Control (2026-10-07)
+
+- Started clean at3a2c399, the previously committed/pushed optional-image change. Moved the control beside「環保志工群英會」on the homepage, labeled「顯示原圖」with an accessible all-set name and52px label target. Removed the practice-page checkbox and hint. Existing saved preference/default-off/postanswer-only scans and essential images preserved.
+- Application files: src/app/page.tsx, src/app/globals.css, src/components/QuestionPractice.tsx; new src/components/OriginalImagesToggle.tsx and src/lib/originalImages.ts share the browser preference and subscriptions. No dependencies, source data, progress helpers or deployment configuration changes. README and feature/progress/handoff updated.
+- Baseline and final npm run verify passed validation,lint,typecheck,86tests,staticbuild and789export references. Actual375/880px browser checks passed title/control placement, keyboard focus/Space,52px target, one homepage control/no practice controls, cross-set/reload on/off, postanswer-only loaded scans, essential images, unchanged saved answers and locking. Blocked reads/writes and write-only storage retain in-memory preference during client navigation. Existing oldURL resume/random/review/cancel/reset regression passed; zero page errors/no overflow.
+- Preview server corrected to serve exported Next.js RSC payloads for client navigation; earlier storage-blocked failure was caused by full-page reloads from the incomplete preview. Final browser evidence: ignored tmp/central-images/results.json,home-375.png,home-880.png,practice-375.png. Visual verdict96/pass in ignored .omx/state/central-original-images/ralph-progress.json; git diff --check passed.
+- Local, uncommitted and unpublished. Physical devices/native browser zoom untested. If storage is blocked, a full reload loses the in-memory preference. No implementation remains.
+
+### Publication authorization — central control — 2026-10-07
+
+User explicitly requested commit and push of the verified central homepage control. Commit to main using Lore trailers and push to origin. Remote Actions/Pages status must be checked separately before claiming deployment.
