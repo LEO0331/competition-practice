@@ -2,7 +2,9 @@
 
 ## Current Objective
 
-None. User-requested set organization is implemented, committed, pushed and deployed. Application commit b2d4a35; GitHub Actions run37554736566 completed successfully. The public site was checked after deployment.
+None. Homepage wording is updated and verified. It is being committed/pushed under existing authorization; inspect Git history and latest Actions for publication status.
+
+Application files changed: src/app/page.tsx and src/components/QuestionSetCard.tsx. H1 is「環保志工群英會」without the old introduction; every question card shows its count without descriptive subtitle. Data, progress and actions are unchanged. On2026-10-07, npm run verify passed70tests and854export references;375px Chromium confirmed all12cards, requested heading, no overflow and zero errors. Screenshot:ignored tmp/home-copy/local-375.png. Physical devices/native zoom untested.
 
 ## Current Product
 

@@ -40,7 +40,6 @@ export function QuestionSetCard({ set }: { set: QuestionSet }) {
   return (
     <article className="card set-card">
       <h2>{set.title}</h2>
-      {set.subtitle && <p>{set.subtitle}</p>}
       <p className="set-count">共 {set.questions.length} 題</p>
       {progress?.completed ? <p>上次練習：答對 {countCorrect(set, progress)} / {set.questions.length} 題</p>
         : hasProgress && <p>已完成 {answered} / {set.questions.length} 題</p>}

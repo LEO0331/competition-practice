@@ -3,7 +3,7 @@
 ## Current State
 
 **Last Updated:** 2026-10-07 (Asia/Taipei)
-**Active Feature:** none — roc-set-organization is deployed and verified.
+**Active Feature:** none — simple-home-copy is implemented and verified.
 **Application baseline:** 7e47cd9; repository `LEO0331/competition-practice`.
 
 ## What's Done
@@ -133,3 +133,10 @@ User explicitly requested commit and push. The verified scan additions will be c
 ### Publication verified — 2026-10-07
 
 Code commit b2d4a35 was pushed to main. GitHub Actions run37554736566 completed successfully, including Pages deployment. An actual375px browser checked the public site:12ROC cards in114/113/112order,200summary questions,44combined Taipei questions,working locked answers,no horizontal overflow and zero page errors. Live evidence is in ignored tmp/set-organization/live-results.json and live-375.png. No remaining implementation or publication work; physical devices and native zoom remain untested.
+
+## Session — Simpler Homepage Copy (2026-10-07)
+
+- Started clean at b431f58. Replaced the homepage introduction with「環保志工群英會」and removed its old explanatory paragraph in src/app/page.tsx. Removed descriptive subtitle rendering in src/components/QuestionSetCard.tsx; the existing「共 xx 題」line, saved progress and actions remain.
+- No data, IDs, progress logic, CSS, dependencies or deployment configuration changed. Descriptive metadata remains in source data; it is no longer displayed on homepage cards.
+- npm run verify passed validation, lint, typecheck,70tests, build and854export references. Actual375px Chromium confirmed the requested H1, all12count-only card subtitles, no old introduction, no horizontal overflow and zero page errors. Screenshot:ignored tmp/home-copy/local-375.png. Visual verdict95/pass; git diff --check passed.
+- Committing and pushing under the existing publication authorization. No implementation remains. Physical device/native zoom not checked; inspect current GitHub Actions for publication outcome.
