@@ -2,7 +2,7 @@ import type { QuestionSet } from "../../types/question.ts";
 
 export const taipei112: QuestionSet = {
   "id": "112-taipei-jintounao",
-  "title": "112 北市金頭腦考題",
+  "title": "112 年－臺北市金頭腦",
   "year": "112",
   "sourceFile": "環保圖片資料：IMG_9603.JPG–IMG_9612.JPG",
   "questions": [

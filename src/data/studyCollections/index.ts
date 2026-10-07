@@ -1,7 +1,6 @@
 import { environmentNotes } from "./environment.ts";
-import { summary112Notes } from "./112-summary.ts";
 import type { StudyCollection } from "../../types/study.ts";
-export const studyCollections: StudyCollection[] = [environmentNotes, summary112Notes];
+export const studyCollections: StudyCollection[] = [environmentNotes];
 export function getStudyCollection(id: string): StudyCollection | undefined {
   return studyCollections.find((collection) => collection.id === id);
 }

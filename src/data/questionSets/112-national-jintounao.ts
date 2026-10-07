@@ -2,7 +2,7 @@ import type { QuestionSet } from "../../types/question.ts";
 
 export const national112: QuestionSet = {
   "id": "112-national-jintounao",
-  "title": "112 全國金頭腦考題",
+  "title": "112 年－全國金頭腦",
   "year": "112",
   "sourceFile": "環保圖片資料：IMG_9616.JPG–IMG_9636.JPG",
   "questions": [

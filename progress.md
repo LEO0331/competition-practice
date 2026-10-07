@@ -3,7 +3,7 @@
 ## Current State
 
 **Last Updated:** 2026-10-07 (Asia/Taipei)
-**Active Feature:** none — four-scanned-source-groups is done locally.
+**Active Feature:** none — roc-set-organization is verified; publication proceeding.
 **Application baseline:** 7e47cd9; repository `LEO0331/competition-practice`.
 
 ## What's Done
@@ -119,3 +119,13 @@ User directly answered "Yes, publish the fix" to commit/pushmain andtriggerCI/Pa
 ### Publication authorization — 2026-10-07
 
 User explicitly requested commit and push. The verified scan additions will be committed to main using Lore trailers and pushed to origin. Remote CI/Pages must be checked separately; local verification does not establish deployment.
+
+## Session — ROC Names, Combined Paper and User-Authorized Reconstruction (2026-10-07)
+
+- Started clean at12a9db5; current baseline verification passed56tests/862export references.
+- Applied explicit user override permitting best-guess reconstruction: nine formerly excluded112summary rows are now answerable, bringing that set to200. Printed answers preserved, inferred wording noted after answering; original191rows/PDFs/images unchanged. Removed the separate four-page scan-check collection and homepage entry.
+- Combined24Taipei guanlan questions and20supplement questions under existing113-taipei-guanlan ID. Original question IDs/choices/answers/source labels retained; supplemental URL renders combined44question set. Existing two answer maps migrate once. Sequential positions map byquestionID; oldrandomorder remains a prefix. Formerly completed expanded sets resume firstunanswered newquestion. Explicit restarts cannot resurrect legacyanswers; separate review storage untouched.
+- All12display titles use ROC-year prefixes, sorted114/113/112. Total722questions; original48study pages retained. Sourcefilenames/rawtitles are not rewritten. README andsource docs updated.
+- Changed: question headers/registries;two newquestion composition modules;removed oldcheckcollection;practice routealias export;progressmigration andtype metadata;scanned-source/organization/migration tests;source docs/README/state. No dependency/CSS/deploymentconfiguration change.
+- npm run verify PASS:validation/lint/typecheck/70tests/staticbuild/854exportrefs.375pxChromium PASS:12orderedcards,noextracheckcard,mergedanswers/focus/locking/cancel/confirmedrestart/reload,oldaliasrandomresume,191->200positionmapping,completedoldsetresumesq53,all9reconstructedrows showinference afteranswer,nooverflow,0pageerrors. Screenshot/results ignoredtmp/set-organization;visualverdict94/pass inignored.omx/state/roc-set-organization/ralph-progress.json. gitdiffcheck pass after EOF whitespace fix.
+- Publishing per earlier commit/push authorization in this continuing task. Physicaldevices/nativezoom andcurrentremote deployment notyetverified. No implementation remains.

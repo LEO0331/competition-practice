@@ -28,14 +28,13 @@ export function sessionQuestions(set: QuestionSet, progress: Progress) {
   const questions = new Map(set.questions.map((q) => [q.id, q]));
   return progress.questionOrder.map((id) => questions.get(id)!);
 }
-export function parseProgress(set: QuestionSet, raw: string | null): Progress {
-  const empty = createProgress(set);
+function readProgress(set: QuestionSet, raw: string | null): Progress | null {
   try {
     const value = JSON.parse(raw ?? "null");
     if (!value || value.version !== 1 || !Number.isInteger(value.position) ||
         value.position < 0 || value.position >= set.questions.length ||
-        !value.answers || typeof value.answers !== "object" || Array.isArray(value.answers)) return empty;
-    if (value.questionOrder !== undefined && !validOrder(set, value.questionOrder)) return empty;
+        !value.answers || typeof value.answers !== "object" || Array.isArray(value.answers)) return null;
+    if (value.questionOrder !== undefined && !validOrder(set, value.questionOrder)) return null;
     const answers: Record<string, ChoiceId> = {};
     for (const q of set.questions) {
       const choice = value.answers[q.id];
@@ -44,14 +43,57 @@ export function parseProgress(set: QuestionSet, raw: string | null): Progress {
     return { version: 1, position: value.position, answers,
       ...(value.questionOrder !== undefined ? { questionOrder: [...value.questionOrder] } : {}),
       completed: value.completed === true && Object.keys(answers).length === set.questions.length };
-  } catch { return empty; }
+  } catch { return null; }
+}
+export function parseProgress(set: QuestionSet, raw: string | null): Progress {
+  return readProgress(set, raw) ?? createProgress(set);
 }
 export function loadProgress(set: QuestionSet): Progress {
-  try { return parseProgress(set, window.localStorage.getItem(progressKey(set))); }
+  try {
+    const raw = window.localStorage.getItem(progressKey(set));
+    if (!set.progressSources?.length) return parseProgress(set, raw);
+    const current = JSON.parse(raw ?? "null");
+    // A saved current-set snapshot, including an explicit restart, takes precedence.
+    if (current?.questionIds !== undefined || validOrder(set, current?.questionOrder)) {
+      return parseProgress(set, raw);
+    }
+    const questions = new Map(set.questions.map((question) => [question.id, question]));
+    const sources = set.progressSources.flatMap((source) => {
+      if (!source.questionIds.length || new Set(source.questionIds).size !== source.questionIds.length ||
+          source.questionIds.some((id) => !questions.has(id))) return [];
+      const sourceSet: QuestionSet = { ...set, id: source.id,
+        questions: source.questionIds.map((id) => questions.get(id)!) };
+      const progress = readProgress(sourceSet, source.id === set.id ? raw :
+        window.localStorage.getItem(progressKey(sourceSet)));
+      return progress ? [{ source, progress }] : [];
+    });
+    if (!sources.length) return parseProgress(set, raw);
+    const primary = sources.find(({ source }) => source.id === set.id) ?? sources[0];
+    const answers: Record<string, ChoiceId> = {};
+    for (const { progress } of sources) Object.assign(answers, progress.answers);
+    Object.assign(answers, primary.progress.answers);
+    const currentId = (primary.progress.questionOrder ?? primary.source.questionIds)[primary.progress.position];
+    const questionOrder = primary.progress.questionOrder ? [
+      ...primary.progress.questionOrder,
+      ...set.questions.map((question) => question.id).filter((id) => !primary.progress.questionOrder!.includes(id)),
+    ] : undefined;
+    const order = questionOrder ?? set.questions.map((question) => question.id);
+    const completed = sources.some(({ progress }) => progress.completed) && Object.keys(answers).length === set.questions.length;
+    const position = primary.progress.completed && !completed
+      ? order.findIndex((id) => answers[id] === undefined) : order.indexOf(currentId);
+    const migrated: Progress = { version: 1, position, answers, completed,
+      ...(questionOrder ? { questionOrder } : {}) };
+    saveProgress(set, migrated);
+    return migrated;
+  }
   catch { return createProgress(set); }
 }
 export function saveProgress(set: QuestionSet, progress: Progress): boolean {
-  try { window.localStorage.setItem(progressKey(set), JSON.stringify(progress)); return true; }
+  try {
+    window.localStorage.setItem(progressKey(set), JSON.stringify({ ...progress,
+      ...(set.progressSources?.length ? { questionIds: set.questions.map((question) => question.id) } : {}) }));
+    return true;
+  }
   catch { return false; }
 }
 export function answerQuestion(set: QuestionSet, progress: Progress, choice: ChoiceId): Progress {

@@ -2,24 +2,22 @@
 
 ## Current Objective
 
-None. The four requested scan folders are fully integrated locally. Started from a clean checkout at c802a01. User explicitly authorized commit and push on 2026-10-07. The verified change is being published to main; inspect Git status/history and remote Actions for the current publication outcome.
+Implementation complete. Publishing the user-requested set organization under the earlier commit/push authorization. Starting commit 12a9db5; inspect Git history/status and remote Actions for current publication outcome.
 
-## Result and Evidence
+## Result
 
-Six unchanged PDFs, 36 upright source pages, eight independent sets adding 472 questions, and four review pages retaining nine incomplete 2023 rows. Source explanations retained; five partly unclear explanations explicitly marked. Existing datasets, progress and UI unchanged; no new dependencies.
+All 12 visible practice sets use consistent ROC titles and descending 114/113/112 order. The Taipei guanlan 24 and supplement 20 papers now form one 44-question set; the old supplemental URL resolves to it. The 112 summary has 200 questions including 9 explicitly user-authorized reconstructions, labeled after answering. Its separate check collection is removed. Total 722 questions and original 48 study pages.
 
-On 2026-10-07, npm run verify passed validation, lint, typecheck, 56 tests, static build and 862 export references. Next.js requires host execution for Windows path resolution in this sandbox. Actual375px Chromium checks passed for all eight sets: visible focus,52px+ choices, answer locking, originals hidden before answering, upright images, no overflow and reload resume. Review page4 resume and restart cancellation passed; zero page errors. git diff --check passed. Screenshots/results are in ignored tmp/new-scans/; visual verdict94/pass is recorded in ignored .omx/state/.
+Original 191 summary rows and allPDF/image bytes are unchanged. Guessed rows preserve readable printed answers and mark inferred wording; scope is documented in docs/2023-summary-source-review.md. Original filenames and source titles retain provenance.
 
-## Changed Files
+## Progress Compatibility
 
-Eight question files and registry;112-summary study collection and registry;36 images in four public/source-images folders;six PDFs and SHA-256 manifest in sources/scanned-practice;source-path validators and regression tests;README, source-review index and five detailed reviews;feature/progress/handoff records. No UI, storage or deployment configuration changes.
+QuestionSet.progressSources snapshots permit source-ID-based migration. Same-key sequential positions map to the same question; old random order remains a prefix with new questions appended. Combined paper merges old main/supplement answers. Canonical saves include a disk-only questionIds signature, so confirmed restarts take precedence over legacykeys. Completed old sets resume the first unanswered new question; already complete merged sets retain results. Review storage remains separate.
 
-## Source Limitations
+## Evidence
 
-2023 rows53,68,169,176,179,181,184,185,191 remain review-only because of clipping or unclear text. Partial explanations128,163,166,186,189 mark unclear fragments. The2024 AQI row preserves printed answer2 with handwritten4 noted. One supplementary URL token is unreadable. See docs/source-review.md. Do not invent missing source detail or generatively redraw text. Original scans contain answers and must remain hidden before answering.
+2026-10-07 npm run verify passed validation, lint, typecheck, 70 tests, static build and 854 export references. Actual 375px Chromium verified ordered cards and no extra check,merge/focus/locking/cancel/restart/reload,legacy URL random resume,sequential 191→200 mapping,completed 191-question attempts resume question 53,andall 9 inferred rows answerable, labeled and no overflow. Zero page errors. Screenshots/results:ignoredtmp/set-organization;visualverdict94/pass ignored.omx/state/roc-set-organization/. Physical devices and native zoom untested.
 
-Physical devices, native zoom and live publication were not checked. Browser progress remains local.
+## Files and Remaining Work
 
-## Remaining Work / Recommended Next Step
-
-No implementation remains. Commit/push is authorized; inspect status/history and verify actual CI/Pages results after publication. Local evidence does not prove live publication. More legible originals could resolve the documented gaps in a future task.
+Dataheaders/registries;112-summary-reconstructed and113-taipei-combined modules;removed 112-summary review collection;practice aliases;progress/type metadata;tests;README/source docs;feature/progress/handoff records. No dependencies/CSS/deploymentconfiguration changes. No implementation remains. Verify commit/push and actual remoteCI/Pages before claiming deployment.

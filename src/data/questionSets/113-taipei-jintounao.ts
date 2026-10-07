@@ -2,7 +2,7 @@ import type { QuestionSet } from "../../types/question";
 
 export const jintounao113Taipei: QuestionSet = {
   "id": "113-taipei-jintounao",
-  "title": "2024 北市環保金頭腦（7月27日）",
+  "title": "113 年－臺北市環保金頭腦",
   "year": "113",
   "sourceFile": "Scanned Oct 6, 2026 at 8_55_58 PM.pdf",
   "questions": [

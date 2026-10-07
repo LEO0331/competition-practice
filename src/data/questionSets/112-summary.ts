@@ -2,8 +2,8 @@ import type { QuestionSet } from "../../types/question.ts";
 
 export const summary112: QuestionSet = {
   "id": "112-summary",
-  "title": "2023 總匯",
-  "subtitle": "原始掃描彙整題庫；部分模糊或裁切題目另存複核資料",
+  "title": "112 年－環保題目總匯",
+  "subtitle": "環保知識彙整題庫",
   "year": "112",
   "sourceFile": "Scanned Oct 6, 2026 at 8_59_35 PM.pdf",
   "questions": [

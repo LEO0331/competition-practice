@@ -2,8 +2,8 @@ import type { QuestionSet } from "../../types/question.ts";
 
 export const environmentKnowledge113Scanned: QuestionSet = {
   "id": "113-environment-knowledge",
-  "title": "113 年 1020 環境知識競賽",
-  "subtitle": "掃描來源的第 4–5 頁，共 22 題，保留原始題解。",
+  "title": "113 年－環境知識競賽",
+  "subtitle": "10 月 20 日題本，保留原始題解",
   "year": "113",
   "sourceFile": "Scanned Oct 6, 2026 at 8_57_43 PM.pdf",
   "questions": [

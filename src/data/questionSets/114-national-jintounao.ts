@@ -3,8 +3,8 @@ import type { QuestionSet } from "../../types/question";
 // 依提供的四頁掃描題本逐題轉錄；保留印刷題目、選項與答案。
 export const national114: QuestionSet = {
   "id": "114-national-jintounao",
-  "title": "114 全國賽－環保金頭腦",
-  "subtitle": "2025 全國賽環保金頭腦（掃描題本）",
+  "title": "114 年－全國環保金頭腦",
+  "subtitle": "全國賽題本",
   "year": "114",
   "sourceFile": "Scanned Oct 6, 2026 at 8_51_57 PM.pdf",
   "questions": [

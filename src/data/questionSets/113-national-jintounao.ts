@@ -3,7 +3,7 @@ import type { QuestionSet } from '../../types/question';
 // 依原始 PDF 逐列轉錄；暖身賽與正式賽依來源順序收錄。
 export const national113: QuestionSet = {
   "id": "113-national-jintounao",
-  "title": "113 群英會全國賽－環保金頭腦",
+  "title": "113 年－群英會全國環保金頭腦",
   "subtitle": "含 5 題環保暖身賽與 60 題正式賽題目",
   "year": "113",
   "sourceFile": "113年群英會全國賽_環保金頭腦題目V2.pdf_8753.pdf",

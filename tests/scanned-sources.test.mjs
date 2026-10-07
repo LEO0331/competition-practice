@@ -19,7 +19,7 @@ test('all six supplied scanned PDFs remain byte-for-byte preserved', () => {
 
 test('distinct scanned papers keep their complete row counts and original numbering gaps', () => {
   for (const [id, count] of [
-    ['113-taipei-guanlan', 24], ['113-taipei-jintounao-supplement', 20],
+    ['113-taipei-guanlan', 44],
     ['113-taipei-jintounao', 45], ['113-national-jintounao-scanned', 65],
     ['113-city-supplied', 45], ['113-environment-knowledge', 22], ['114-national-jintounao', 60],
   ]) {
@@ -37,17 +37,17 @@ test('distinct scanned papers keep their complete row counts and original number
   assert.equal(knowledge.filter(q => q.explanation !== null).length, 20);
 });
 
-test('2023 clipping and unclear rows remain review material without invented answerable questions', () => {
-  const excluded = [53, 68, 169, 176, 179, 181, 184, 185, 191];
+test('user-authorized reconstruction completes the summary and removes the separate check collection', () => {
+  const reconstructed = [53, 68, 169, 176, 179, 181, 184, 185, 191];
   const set = getQuestionSet('112-summary');
-  assert.equal(set.questions.length, 191);
+  assert.equal(set.questions.length, 200);
   assert.deepEqual(set.questions.map(q => q.number),
-    Array.from({ length: 200 }, (_, i) => i + 1).filter(number => !excluded.includes(number)));
-  const notes = getStudyCollection('112-summary-notes');
-  assert.deepEqual(notes.pages.map(page => page.source.page), [5, 6, 13, 14]);
-  const reviewedNumbers = notes.pages.flatMap(page => page.sections.flatMap(section =>
-    [...section.heading.matchAll(/\d+/g)].map(match => Number(match[0]))));
-  assert.deepEqual(reviewedNumbers.sort((a, b) => a - b), excluded);
+    Array.from({ length: 200 }, (_, i) => i + 1));
+  for (const number of reconstructed) {
+    const q = set.questions.find(question => question.number === number);
+    assert.match(q.source.note, /依題意推測補全/);
+  }
+  assert.equal(getStudyCollection('112-summary-notes'), undefined);
 });
 
 test('every scanned source page is accounted for by registered questions with upright source images', () => {

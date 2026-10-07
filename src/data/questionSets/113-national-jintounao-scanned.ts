@@ -2,7 +2,7 @@ import type { QuestionSet } from "../../types/question";
 
 export const national113Scanned: QuestionSet = {
   "id": "113-national-jintounao-scanned",
-  "title": "2024 全國賽環保金頭腦（10月26日掃描題本）",
+  "title": "113 年－全國環保金頭腦（掃描版）",
   "year": "113",
   "sourceFile": "Scanned Oct 6, 2026 at 8_56_38 PM.pdf",
   "questions": [

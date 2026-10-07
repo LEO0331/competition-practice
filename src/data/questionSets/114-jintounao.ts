@@ -3,7 +3,7 @@ import type { QuestionSet } from '../../types/question';
 // 依原始 PDF 逐列轉錄；保留競賽題目、答案與題解。
 export const jintounao: QuestionSet = {
   "id": "114-jintounao",
-  "title": "114 群英會－金頭腦",
+  "title": "114 年－群英會金頭腦",
   "year": "114",
   "sourceFile": "114群英會題目0730_金頭腦.pdf",
   "questions": [
