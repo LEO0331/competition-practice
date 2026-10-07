@@ -11,13 +11,18 @@ import { clearReviewSession, createReviewSession, incorrectQuestionIds, loadRevi
 import { QuestionChoice } from "./QuestionChoice";
 import { questionSourceLabel } from "@/lib/sources";
 
+const originalImagesKey = "competition-practice:show-original-images:v1";
+
 export function QuestionPractice({ set }: { set: QuestionSet }) {
   const [fullProgress, setFullProgress] = useState<Progress | null>(null);
   const [review, setReview] = useState<ReviewSession | null>(null);
   const [storageFailed, setStorageFailed] = useState(false);
+  const [showOriginalImages, setShowOriginalImages] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
+    try { setShowOriginalImages(window.localStorage.getItem(originalImagesKey) === "true"); }
+    catch { /* Keep the default when browser storage is unavailable. */ }
     const saved = loadProgress(set);
     setFullProgress(saved);
     const url = new URL(window.location.href);
@@ -32,6 +37,12 @@ export function QuestionPractice({ set }: { set: QuestionSet }) {
     try { window.localStorage.getItem(progressKey(set)); }
     catch { setStorageFailed(true); }
   }, [set]);
+
+  function toggleOriginalImages(enabled: boolean) {
+    setShowOriginalImages(enabled);
+    try { window.localStorage.setItem(originalImagesKey, String(enabled)); }
+    catch { /* The preference still works for the current page. */ }
+  }
 
   function focusQuestion() {
     window.requestAnimationFrame(() => heading.current?.focus());
@@ -107,6 +118,11 @@ export function QuestionPractice({ set }: { set: QuestionSet }) {
       <div className="practice-top"><Link className="text-link" href="/">回到首頁</Link><p className="set-label">{set.title}{modeLabel}</p></div>
       <div className="progress-line"><p>第 {progress.position + 1} 題 / 共 {activeSet.questions.length} 題</p><p>答對 {countCorrect(activeSet, progress)} 題</p></div>
       {storageWarning}
+      <label className="original-images-toggle">
+        <input type="checkbox" checked={showOriginalImages} onChange={(event) => toggleOriginalImages(event.target.checked)} aria-describedby="original-images-hint" />
+        <span>顯示原始圖片</span>
+      </label>
+      <p id="original-images-hint" className="original-images-hint">開啟後，作答完會顯示原圖。</p>
       <section className="card question-card" aria-labelledby="question-heading">
         <h1 id="question-heading" ref={heading} tabIndex={-1} className="question-text">{question.text}</h1>
         {question.image && <img className="question-image" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${question.image}`} alt={question.imageAlt || `第 ${question.number} 題的圖片`} />}
@@ -118,9 +134,10 @@ export function QuestionPractice({ set }: { set: QuestionSet }) {
           <h3>題解</h3><p className="explanation">{question.explanation || "原始題庫未提供題解"}</p>
           <p className="source">{questionSourceLabel(question.source)}</p>
           {question.source.note && <p className="source-notice">{question.source.note}</p>}
-          {question.source.images && <details className="source-original" key={question.id}><summary>查看原始圖片</summary>
+          {showOriginalImages && question.source.images && <div className="source-original">
+            <h3>原始圖片</h3>
             {question.source.images.map((path) => <img className="study-image" loading="lazy" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${path}`} alt="這題的原始圖片，包含來源答案" key={path} />)}
-          </details>}
+          </div>}
           {question.referenceUrl && <p><a className="text-link source" href={question.referenceUrl} target="_blank" rel="noopener noreferrer">原始參考資料（另開視窗）</a></p>}
         </section>}
         <div className="question-navigation">

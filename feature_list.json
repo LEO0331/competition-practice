@@ -232,6 +232,22 @@
         "Verification and browser checks pass"
       ],
       "evidence": "2026-10-07: audited12original sets in66pairs; only the known113official/scanned pair duplicates an entire registered paper. Remaining11papers/55pairs are distinct whole papers with documented partial overlaps. Retained all65official rows unchanged; scan is archived and oldURL aliased. Complete65-ID mapping preserves sequential/random answers and current questions; canonical answers win conflicts. Wrong-review migration preserves full results; save/clear markers prevent legacy replay after restart. npm run verify passed validation,lint,typecheck,86tests,staticbuild and789export references. Local and public375px Chromium passed11orderedcards/657questions, oldURL full/random/reviewresume, focus/locking/reload, reviewcompletion without fullwrites, cancel/reset,nooverflow,0pageerrors. Application committed/pushed as20cc582; existing commit preserved. GitHub Actions run37557246912 completed success including Pages deployment. Physicaldevices/nativezoom untested."
+    },
+    {
+      "id": "optional-original-images",
+      "name": "Optional original images during practice",
+      "description": "Default-off browser preference that automatically displays original scans after answering when enabled. Essential question and choice images remain visible.",
+      "dependencies": [
+        "static-question-practice"
+      ],
+      "status": "done",
+      "acceptance_criteria": [
+        "Default practice omits original scans",
+        "Preference persists across questions, sets and reloads independently of progress",
+        "Enabled source scans only appear after answering",
+        "Keyboard and 375px checks pass; existing progress and review preserved"
+      ],
+      "evidence": "2026-10-07: Default-off 顯示原始圖片 checkbox automatically shows original scans only after answering. Global browser preference uses a separate key; essential question/choice imagery remains. Baseline and final npm run verify passed validation/lint/typecheck/86tests/static build/789 export references. Actual375px Chromium passed keyboard focus/toggle, 56px target, automatic next-question display, preanswer hiding, reload/cross-set on/off persistence, unchanged full progress, answer locking, essential images, blocked storage and no overflow/page errors. Existing review/resume/reset browser regression also passed. Visual verdict95/pass. User authorized commit and push on 2026-10-07; publication proceeding. Physical devices/native zoom untested; remote deployment must be checked separately."
     }
   ],
   "active_feature": null

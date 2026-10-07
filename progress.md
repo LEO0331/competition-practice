@@ -156,3 +156,15 @@ Code commit b2d4a35 was pushed to main. GitHub Actions run37554736566 completed 
 The implementation was committed and pushed as20cc582 during this task. That commit was preserved without amendment or history changes. GitHub Actions run37557246912 completed successfully, including Pages deployment. Final application checks passed86tests and789export references.
 
 A public375px browser verified11ROC cards with only the requested official113national paper, oldscanURL sequential/random resume, mappedwrong-review completion without changing full results, keyboardfocus/locking, cancel/reset protection, nooverflow and zero page errors. Evidence:ignored tmp/deduplicate/live-results.json and live-375.png. No implementation or publication blocker remains. This follow-up records verified state only.
+
+## Session — Optional Original Question Images (2026-10-07)
+
+- Added a default-off「顯示原始圖片」checkbox above the question. Enabled scans display automatically after answering, across subsequent questions and sets. The separate browser preference key is competition-practice:show-original-images:v1; storage failure falls back to an in-memory preference. Essential question and choice images stay visible; source provenance and explanations remain. No source data or progress/review helpers changed.
+- Changed application files: src/components/QuestionPractice.tsx and src/app/globals.css. README documents the setting; feature/progress/handoff records updated. Removed the per-question source-image disclosure in favor of this single preference. No dependencies added.
+- Baseline and final npm run verify passed validation, lint, typecheck,86tests,staticbuild and789export references. Windows Next.js path canonicalization required the same host execution used in previous sessions. git diff --check passed.
+- Actual375px Chromium verified default-off, keyboard focus/Space toggle,56px label target, post-answer automatic scans, no premature source answers, next/previous state, reload and cross-set persistence, unchanged saved answers, locking, essential images and blocked storage fallback. Existing duplicate-paper browser regression passed resume/review independence/cancel/reset. No horizontal overflow or page errors. Evidence: ignored tmp/image-toggle/results.json and off-375.png; visual verdict95/pass in .omx/state/optional-original-images/ralph-progress.json.
+- Local, uncommitted and unpublished. Physical devices and native zoom remain untested. No implementation blocker or pending approval.
+
+### Publication authorization — 2026-10-07
+
+User explicitly requested commit and push of the verified optional-original-images change. Commit to main using Lore trailers and push to origin. GitHub Actions/Pages status must be checked separately; successful push alone does not establish deployment.
