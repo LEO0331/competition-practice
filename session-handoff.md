@@ -2,22 +2,26 @@
 
 ## Current Objective
 
-Implementation complete. Publishing the user-requested set organization under the earlier commit/push authorization. Starting commit 12a9db5; inspect Git history/status and remote Actions for current publication outcome.
+None. User-requested set organization is implemented, committed, pushed and deployed. Application commit b2d4a35; GitHub Actions run37554736566 completed successfully. The public site was checked after deployment.
 
-## Result
+## Current Product
 
-All 12 visible practice sets use consistent ROC titles and descending 114/113/112 order. The Taipei guanlan 24 and supplement 20 papers now form one 44-question set; the old supplemental URL resolves to it. The 112 summary has 200 questions including 9 explicitly user-authorized reconstructions, labeled after answering. Its separate check collection is removed. Total 722 questions and original 48 study pages.
+12 practice sets use consistent ROC-year names and descend from114to113to112. Total722questions. The113Taipei guanlan24and supplement20papers form one44-question set; the old supplemental URL still works. The112summary contains200questions, including9user-authorized inferred restorations labeled after answering. Its separate scan-check collection is removed. Original48study pages remain.
 
-Original 191 summary rows and allPDF/image bytes are unchanged. Guessed rows preserve readable printed answers and mark inferred wording; scope is documented in docs/2023-summary-source-review.md. Original filenames and source titles retain provenance.
+All original191summary rows and source PDFs/images are unchanged. Guessed wording retains source notes; details in docs/2023-summary-source-review.md. Original source names and dates remain intact.
 
 ## Progress Compatibility
 
-QuestionSet.progressSources snapshots permit source-ID-based migration. Same-key sequential positions map to the same question; old random order remains a prefix with new questions appended. Combined paper merges old main/supplement answers. Canonical saves include a disk-only questionIds signature, so confirmed restarts take precedence over legacykeys. Completed old sets resume the first unanswered new question; already complete merged sets retain results. Review storage remains separate.
+Optional progressSources metadata contains predecessor IDs. Sequential progress maps current question by ID; random orders retain the legacy prefix and append new questions. Both Taipei answer maps merge once. Canonical saves include an internal questionIds signature, so confirmed restarts cannot restore old answers. Completed older versions resume unanswered new questions; fully completed combined attempts retain results. Full and review storage remain separate.
 
-## Evidence
+## Verification
 
-2026-10-07 npm run verify passed validation, lint, typecheck, 70 tests, static build and 854 export references. Actual 375px Chromium verified ordered cards and no extra check,merge/focus/locking/cancel/restart/reload,legacy URL random resume,sequential 191→200 mapping,completed 191-question attempts resume question 53,andall 9 inferred rows answerable, labeled and no overflow. Zero page errors. Screenshots/results:ignoredtmp/set-organization;visualverdict94/pass ignored.omx/state/roc-set-organization/. Physical devices and native zoom untested.
+2026-10-07 npm run verify passed validation, lint, typecheck,70tests, static build and854export references. Local375px Chromium checked ordering/noextra reader, combined answers, focus, locking, cancel/restart/reload, legacy URL/random resume, sequential position mapping, completed191→newquestion53, and all9marked inferred rows without overflow. Zero page errors.
 
-## Files and Remaining Work
+After successful Pages deployment, a public375px browser confirmed12ROC cards in order,200summary and44combined questions,working answer locking,nooverflow and zero page errors. Evidence screenshots/results are in ignored tmp/set-organization/. Visual verdict94/pass is under ignored .omx/state/roc-set-organization/.
 
-Dataheaders/registries;112-summary-reconstructed and113-taipei-combined modules;removed 112-summary review collection;practice aliases;progress/type metadata;tests;README/source docs;feature/progress/handoff records. No dependencies/CSS/deploymentconfiguration changes. No implementation remains. Verify commit/push and actual remoteCI/Pages before claiming deployment.
+Physical devices and native browser zoom were not checked.
+
+## Remaining Work / Next Step
+
+None. Follow the next user request. Preserve inferred-text notes, predecessor progress mappings and existing source IDs when modifying these sets. Review source documents before changing answers. No dependencies or deployment configuration were added.

@@ -3,7 +3,7 @@
 ## Current State
 
 **Last Updated:** 2026-10-07 (Asia/Taipei)
-**Active Feature:** none — roc-set-organization is verified; publication proceeding.
+**Active Feature:** none — roc-set-organization is deployed and verified.
 **Application baseline:** 7e47cd9; repository `LEO0331/competition-practice`.
 
 ## What's Done
@@ -129,3 +129,7 @@ User explicitly requested commit and push. The verified scan additions will be c
 - Changed: question headers/registries;two newquestion composition modules;removed oldcheckcollection;practice routealias export;progressmigration andtype metadata;scanned-source/organization/migration tests;source docs/README/state. No dependency/CSS/deploymentconfiguration change.
 - npm run verify PASS:validation/lint/typecheck/70tests/staticbuild/854exportrefs.375pxChromium PASS:12orderedcards,noextracheckcard,mergedanswers/focus/locking/cancel/confirmedrestart/reload,oldaliasrandomresume,191->200positionmapping,completedoldsetresumesq53,all9reconstructedrows showinference afteranswer,nooverflow,0pageerrors. Screenshot/results ignoredtmp/set-organization;visualverdict94/pass inignored.omx/state/roc-set-organization/ralph-progress.json. gitdiffcheck pass after EOF whitespace fix.
 - Publishing per earlier commit/push authorization in this continuing task. Physicaldevices/nativezoom andcurrentremote deployment notyetverified. No implementation remains.
+
+### Publication verified — 2026-10-07
+
+Code commit b2d4a35 was pushed to main. GitHub Actions run37554736566 completed successfully, including Pages deployment. An actual375px browser checked the public site:12ROC cards in114/113/112order,200summary questions,44combined Taipei questions,working locked answers,no horizontal overflow and zero page errors. Live evidence is in ignored tmp/set-organization/live-results.json and live-375.png. No remaining implementation or publication work; physical devices and native zoom remain untested.
