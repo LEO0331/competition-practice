@@ -3,7 +3,7 @@
 ## Current State
 
 **Last Updated:** 2026-10-07 (Asia/Taipei)
-**Active Feature:** none — simple-home-copy is implemented and verified.
+**Active Feature:** none — duplicate-paper removal is deployed and verified.
 **Application baseline:** 7e47cd9; repository `LEO0331/competition-practice`.
 
 ## What's Done
@@ -140,3 +140,19 @@ Code commit b2d4a35 was pushed to main. GitHub Actions run37554736566 completed 
 - No data, IDs, progress logic, CSS, dependencies or deployment configuration changed. Descriptive metadata remains in source data; it is no longer displayed on homepage cards.
 - npm run verify passed validation, lint, typecheck,70tests, build and854export references. Actual375px Chromium confirmed the requested H1, all12count-only card subtitles, no old introduction, no horizontal overflow and zero page errors. Screenshot:ignored tmp/home-copy/local-375.png. Visual verdict95/pass; git diff --check passed.
 - Committing and pushing under the existing publication authorization. No implementation remains. Physical device/native zoom not checked; inspect current GitHub Actions for publication outcome.
+
+## Session — Remove Duplicate National Paper and Audit All Sets (2026-10-07)
+
+- Started clean at51dce0e. Current-session baseline verify passed70tests/854export references.
+- Retained「113 年－群英會全國環保金頭腦」with all65question IDs, wording, choices, answers and original page provenance unchanged. Removed scanned version from registry and homepage; old scanned URL opens retained paper. Original source PDF/images and archived transcript remain intact.
+- Audited all12original registered papers in66pairs, including normalized stems/ordered choices/answers, fuzzy candidates and manual checks of largest overlaps. Source labels align all65national rows and printed answers. No other whole registered paper duplicated or entirely covered by another. Partial overlaps remain:113/114national papers,24-question Taipei component/citypaper, and recurring older questions. Full report and compact66-pair evidence in docs/question-set-duplicate-audit.md/.json. Current11papers total657questions; original48study pages retained.
+- Added source-ID mapping metadata to progress migration. Both old answer maps merge once with canonical choices winning conflicts; legacy sequential/current/random IDs map to retained IDs. Wrong-only review migration preserves its source-ordered current question and never writes full results. Canonical save/clear markers prevent stale answers/reviews replaying after restart. Existing unmapped sets retain previous behavior.
+- Changed: national retained composition module and registry alias;progress/review/type metadata;regression tests;README/source-review docs;new duplicate-audit documents;feature/progress/handoff records. No dependencies/CSS/deploymentconfiguration changes.
+- npm run verify PASS:validation/lint/typecheck/86tests/staticbuild/789exportrefs. Actual375pxChromium PASS:11orderedcards/no scan card,oldURL sequentialresume/reload,focus/locking,randomorder mapping,oldwrongreview resume/completion without fullwrite,cancel/confirmedrestart block full/review legacy replay,nooverflow,0pageerrors. Evidence ignoredtmp/deduplicate;visualverdict95/pass. git diff --check passed.
+- Publishing under continuing commit/push authorization. No implementation remains. Physicaldevices/nativezoom untested; remote deployment checked separately after push.
+
+### Existing commit and publication verified — 2026-10-07
+
+The implementation was committed and pushed as20cc582 during this task. That commit was preserved without amendment or history changes. GitHub Actions run37557246912 completed successfully, including Pages deployment. Final application checks passed86tests and789export references.
+
+A public375px browser verified11ROC cards with only the requested official113national paper, oldscanURL sequential/random resume, mappedwrong-review completion without changing full results, keyboardfocus/locking, cancel/reset protection, nooverflow and zero page errors. Evidence:ignored tmp/deduplicate/live-results.json and live-375.png. No implementation or publication blocker remains. This follow-up records verified state only.

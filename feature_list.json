@@ -223,15 +223,16 @@
       "dependencies": [
         "roc-set-organization"
       ],
-      "status": "in-progress",
+      "status": "done",
       "acceptance_criteria": [
         "Only official113national paper is displayed",
         "Legacy scan full progress and route preserved",
         "All remaining pairs audited for full-paper duplication",
         "Original sources retained",
         "Verification and browser checks pass"
-      ]
+      ],
+      "evidence": "2026-10-07: audited12original sets in66pairs; only the known113official/scanned pair duplicates an entire registered paper. Remaining11papers/55pairs are distinct whole papers with documented partial overlaps. Retained all65official rows unchanged; scan is archived and oldURL aliased. Complete65-ID mapping preserves sequential/random answers and current questions; canonical answers win conflicts. Wrong-review migration preserves full results; save/clear markers prevent legacy replay after restart. npm run verify passed validation,lint,typecheck,86tests,staticbuild and789export references. Local and public375px Chromium passed11orderedcards/657questions, oldURL full/random/reviewresume, focus/locking/reload, reviewcompletion without fullwrites, cancel/reset,nooverflow,0pageerrors. Application committed/pushed as20cc582; existing commit preserved. GitHub Actions run37557246912 completed success including Pages deployment. Physicaldevices/nativezoom untested."
     }
   ],
-  "active_feature": "deduplicate-question-papers"
+  "active_feature": null
 }
