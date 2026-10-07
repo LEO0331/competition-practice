@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { questionSets, getQuestionSet } from '../src/data/questionSets/index.ts';
 import { getStudyCollection } from '../src/data/studyCollections/index.ts';
+import { national113Scanned } from '../src/data/questionSets/113-national-jintounao-scanned.ts';
 
 const sources = JSON.parse(readFileSync(new URL('../sources/scanned-practice/manifest.json', import.meta.url), 'utf8'));
 
@@ -50,9 +51,9 @@ test('user-authorized reconstruction completes the summary and removes the separ
   assert.equal(getStudyCollection('112-summary-notes'), undefined);
 });
 
-test('every scanned source page is accounted for by registered questions with upright source images', () => {
+test('every scanned source page is accounted for in retained or archived source questions with upright images', () => {
   for (const source of sources) {
-    const questions = questionSets.flatMap(set => set.questions).filter(q => q.source.file === source.file);
+    const questions = [...questionSets, national113Scanned].flatMap(set => set.questions).filter(q => q.source.file === source.file);
     assert.ok(questions.length, source.file);
     assert.deepEqual([...new Set(questions.map(q => q.source.page))].sort((a, b) => a - b),
       Array.from({ length: source.pages }, (_, i) => i + 1), source.file);

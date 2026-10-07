@@ -41,7 +41,36 @@ export function parseReviewSession(set: QuestionSet, raw: string | null): Review
   } catch { return null; }
 }
 export function loadReviewSession(set: QuestionSet): ReviewSession | null {
-  try { return parseReviewSession(set, window.localStorage.getItem(reviewKey(set))); }
+  try {
+    const raw = window.localStorage.getItem(reviewKey(set));
+    // Existing review state, including an explicit clear, owns this session.
+    if (raw !== null) return parseReviewSession(set, raw);
+    const questions = new Map(set.questions.map((question) => [question.id, question]));
+    for (const source of set.progressSources ?? []) {
+      const mapping = source.questionIdMap;
+      if (source.id === set.id || !mapping || typeof mapping !== "object" || Array.isArray(mapping)) continue;
+      const mappedIds = source.questionIds.map((id) => Object.hasOwn(mapping, id) ? mapping[id] : undefined);
+      if (!source.questionIds.length || new Set(source.questionIds).size !== source.questionIds.length ||
+          new Set(mappedIds).size !== mappedIds.length ||
+          mappedIds.some((id) => typeof id !== "string" || !questions.has(id))) continue;
+      const sourceSet: QuestionSet = { ...set, id: source.id,
+        questions: source.questionIds.map((id, index) => ({ ...questions.get(mappedIds[index]!)!, id })) };
+      const legacy = parseReviewSession(sourceSet, window.localStorage.getItem(reviewKey(sourceSet)));
+      if (!legacy) continue;
+      const subset = reviewQuestionSet(set, legacy.questionIds.map((id) => mapping[id]));
+      const currentId = mapping[legacy.questionIds[legacy.progress.position]];
+      const migrated: ReviewSession = { version: 1,
+        questionIds: subset.questions.map((question) => question.id),
+        progress: { ...legacy.progress,
+          position: subset.questions.findIndex((question) => question.id === currentId),
+          answers: Object.fromEntries(Object.entries(legacy.progress.answers).map(([id, answer]) => [mapping[id], answer])),
+        },
+      };
+      saveReviewSession(set, migrated);
+      return migrated;
+    }
+    return null;
+  }
   catch { return null; }
 }
 export function saveReviewSession(set: QuestionSet, session: ReviewSession): boolean {
@@ -49,6 +78,10 @@ export function saveReviewSession(set: QuestionSet, session: ReviewSession): boo
   catch { return false; }
 }
 export function clearReviewSession(set: QuestionSet): void {
-  try { window.localStorage.removeItem(reviewKey(set)); }
+  try {
+    if (set.progressSources?.some((source) => source.questionIdMap !== undefined)) {
+      window.localStorage.setItem(reviewKey(set), "null");
+    } else window.localStorage.removeItem(reviewKey(set));
+  }
   catch { /* Full-session reset still works when review storage is unavailable. */ }
 }

@@ -54,19 +54,40 @@ export function loadProgress(set: QuestionSet): Progress {
     if (!set.progressSources?.length) return parseProgress(set, raw);
     const current = JSON.parse(raw ?? "null");
     // A saved current-set snapshot, including an explicit restart, takes precedence.
-    if (current?.questionIds !== undefined || validOrder(set, current?.questionOrder)) {
+    const hasMappedSources = set.progressSources.some((source) => source.questionIdMap !== undefined);
+    if (current?.questionIds !== undefined || (!hasMappedSources && validOrder(set, current?.questionOrder))) {
       return parseProgress(set, raw);
     }
     const questions = new Map(set.questions.map((question) => [question.id, question]));
     const sources = set.progressSources.flatMap((source) => {
+      const mapping = source.questionIdMap;
+      if (mapping !== undefined && (!mapping || typeof mapping !== "object" || Array.isArray(mapping))) return [];
+      const mappedIds = source.questionIds.map((id) => mapping === undefined ? id :
+        Object.hasOwn(mapping, id) ? mapping[id] : undefined);
       if (!source.questionIds.length || new Set(source.questionIds).size !== source.questionIds.length ||
-          source.questionIds.some((id) => !questions.has(id))) return [];
+          new Set(mappedIds).size !== mappedIds.length ||
+          mappedIds.some((id) => typeof id !== "string" || !questions.has(id))) return [];
       const sourceSet: QuestionSet = { ...set, id: source.id,
-        questions: source.questionIds.map((id) => questions.get(id)!) };
+        questions: source.questionIds.map((id, index) => ({ ...questions.get(mappedIds[index]!)!, id })) };
       const progress = readProgress(sourceSet, source.id === set.id ? raw :
         window.localStorage.getItem(progressKey(sourceSet)));
-      return progress ? [{ source, progress }] : [];
+      if (!progress) return [];
+      const canonicalId = (id: string) => mapping === undefined ? id : mapping[id];
+      return [{ source: { ...source, questionIds: mappedIds as string[] }, progress: { ...progress,
+        answers: Object.fromEntries(Object.entries(progress.answers).map(([id, answer]) => [canonicalId(id), answer])),
+        ...(progress.questionOrder ? { questionOrder: progress.questionOrder.map(canonicalId) } : {}),
+      } }];
     });
+    // Full random sessions saved before ID migration still own their order and position.
+    if (hasMappedSources && validOrder(set, current?.questionOrder)) {
+      const progress = readProgress(set, raw);
+      if (progress) {
+        const existing = sources.findIndex(({ source }) => source.id === set.id);
+        const canonical = { source: { id: set.id, questionIds: set.questions.map((question) => question.id) }, progress };
+        if (existing < 0) sources.push(canonical);
+        else sources[existing] = canonical;
+      }
+    }
     if (!sources.length) return parseProgress(set, raw);
     const primary = sources.find(({ source }) => source.id === set.id) ?? sources[0];
     const answers: Record<string, ChoiceId> = {};

@@ -6,7 +6,7 @@ import { guanlan113Taipei } from '../src/data/questionSets/113-taipei-guanlan.ts
 import { taipei113Supplement } from '../src/data/questionSets/113-taipei-jintounao-supplement.ts';
 
 test('all displayed set names use ROC years and descend from newest to oldest', () => {
-  assert.equal(questionSets.length, 12);
+  assert.equal(questionSets.length, 11);
   const years = questionSets.map(set => Number(set.year));
   assert.deepEqual(years, [...years].sort((a, b) => b - a));
   for (const set of questionSets) {

@@ -26,5 +26,5 @@ export type QuestionSet = {
   year?: string;
   sourceFile: string;
   questions: Question[];
-  progressSources?: { id: string; questionIds: string[] }[];
+  progressSources?: { id: string; questionIds: string[]; questionIdMap?: Record<string, string> }[];
 };

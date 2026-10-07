@@ -215,7 +215,23 @@
         "Verification and375px rendering pass"
       ],
       "evidence": "2026-10-07: only src/app/page.tsx and src/components/QuestionSetCard.tsx changed in the application. Introduction is 環保志工群英會 with no old paragraph; explanatory card subtitles removed, counts and progress/actions retained. npm run verify passed validation, lint, typecheck,70tests, build and854export references. Actual375px Chromium verified all12cards have only their count subtitle, requested H1, no overflow and zero page errors. Visual verdict95/pass. Publishing under existing commit/push authorization; physical device and native zoom remain untested."
+    },
+    {
+      "id": "deduplicate-question-papers",
+      "name": "Retain one113national paper and audit all remaining sets",
+      "description": "Remove duplicate scanned113national paper from display, preserve legacy routes and progress through ID mapping, and audit remaining whole papers for duplicate content.",
+      "dependencies": [
+        "roc-set-organization"
+      ],
+      "status": "in-progress",
+      "acceptance_criteria": [
+        "Only official113national paper is displayed",
+        "Legacy scan full progress and route preserved",
+        "All remaining pairs audited for full-paper duplication",
+        "Original sources retained",
+        "Verification and browser checks pass"
+      ]
     }
   ],
-  "active_feature": null
+  "active_feature": "deduplicate-question-papers"
 }
