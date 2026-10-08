@@ -3,7 +3,7 @@ import { createProgress, parseProgress, type Progress } from "./progress.ts";
 
 export type ReviewSession = { version: 1; questionIds: string[]; progress: Progress };
 
-export function reviewKey(set: QuestionSet): string {
+export function reviewKey(set: Pick<QuestionSet, "id">): string {
   return `competition-practice:review:v1:${set.id}`;
 }
 export function incorrectQuestionIds(set: QuestionSet, progress: Progress): string[] {
@@ -77,7 +77,7 @@ export function saveReviewSession(set: QuestionSet, session: ReviewSession): boo
   try { window.localStorage.setItem(reviewKey(set), JSON.stringify(session)); return true; }
   catch { return false; }
 }
-export function clearReviewSession(set: QuestionSet): void {
+export function clearReviewSession(set: Pick<QuestionSet, "id" | "progressSources">): void {
   try {
     if (set.progressSources?.some((source) => source.questionIdMap !== undefined)) {
       window.localStorage.setItem(reviewKey(set), "null");

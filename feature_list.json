@@ -264,6 +264,22 @@
         "375px layout, keyboard and navigation verified"
       ],
       "evidence": "2026-10-07: Single compact 顯示原圖 checkbox beside homepage title controls all sets; practice controls removed. Existing browser preference key retained through shared subscription; browser session fallback supports blocked writes during client navigation. Baseline and final npm run verify passed validation/lint/typecheck/86tests/static build/789 export references. Actual375/880px Chromium passed placement, keyboard focus,52px label target, default-off/on/off persistence, cross-set and reload behavior, postanswer-only imagery, essential images, unchanged progress, blocked read/write and write-only navigation. Existing resume/random/review/reset checks passed; no overflow or page errors. Visual verdict96/pass. User authorized commit and push on 2026-10-07; publication proceeding. Physical devices/native zoom untested; remote deployment must be checked separately."
+    },
+    {
+      "id": "compact-home-progress",
+      "name": "Reduce mobile resume loading overhead",
+      "description": "Send only IDs, answers and migration metadata to homepage question cards.",
+      "dependencies": [
+        "local-progress-review"
+      ],
+      "status": "done",
+      "acceptance_criteria": [
+        "Homepage no longer serializes full question content",
+        "Existing saved progress, legacy migration, scores, random practice and restart behavior preserved",
+        "Static homepage payload reduced and mobile browser flows verified",
+        "All verification gates pass"
+      ],
+      "evidence": "2026-10-08: Baseline npm run verify passed 86 tests; final verify passed data validation/lint/typecheck/89 tests/static build/789 export references. Compact card props retain IDs/answers/migration metadata; progress algorithms and storage keys unchanged. Homepage HTML 489757 -> 116922 bytes (-76%); local gzip 113094 -> 26120 bytes (-77%). RSC payload 440527 -> 102776 bytes (-77%). 375px Chromium passed all 11 card counts/resumes, locking/reload/keyboard focus, random persistence, cancel/confirmed restart, legacy alias migration and independent wrong-review completion/reset protection; zero page errors/overflow. Before/after home screenshots byte-identical; visual verdict100/pass. git diff --check passed. Local only; physical phone/network timing and deployment unverified."
     }
   ],
   "active_feature": null

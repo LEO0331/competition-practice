@@ -5,11 +5,11 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import type { QuestionSet } from "@/types/question";
+import type { QuestionSetSummary } from "@/types/question";
 import { countAnswered, countCorrect, createProgress, createRandomProgress, loadProgress, saveProgress, type Progress } from "@/lib/progress";
 import { clearReviewSession } from "@/lib/review";
 
-export function QuestionSetCard({ set }: { set: QuestionSet }) {
+export function QuestionSetCard({ set }: { set: QuestionSetSummary }) {
   const [progress, setProgress] = useState<Progress | null>(null);
   const [confirmRestart, setConfirmRestart] = useState<"sequential" | "random" | null>(null);
   const [storageFailed, setStorageFailed] = useState(false);

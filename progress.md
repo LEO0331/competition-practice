@@ -180,3 +180,15 @@ User explicitly requested commit and push of the verified optional-original-imag
 ### Publication authorization — central control — 2026-10-07
 
 User explicitly requested commit and push of the verified central homepage control. Commit to main using Lore trailers and push to origin. Remote Actions/Pages status must be checked separately before claiming deployment.
+
+## Session — Reduce Mobile Resume Loading Overhead (2026-10-08)
+
+- Started clean at36ea49d. Bounded plan: protect existing resume/migration/random/restart behavior, replace full homepage card props with IDs/answers/migration metadata, keep the existing algorithms and UI, then measure the static export and verify mobile flows. Baseline verification passed86tests; sandbox Next.js canonicalization required host execution, as in prior sessions.
+- Changed: src/app/page.tsx; src/components/QuestionSetCard.tsx; new src/lib/questionSetSummary.ts; src/types/question.ts; type-only input narrowing in src/lib/progress.ts and src/lib/review.ts; new tests/home-progress.test.mjs; feature/progress/handoff records. Removed unnecessary question text/choices/explanations/source details from homepage props. No dependencies, source data, saved key/schema, CSS or deployment changes.
+- 2026-10-08: Baseline npm run verify passed 86 tests; final verify passed data validation/lint/typecheck/89 tests/static build/789 export references. Compact card props retain IDs/answers/migration metadata; progress algorithms and storage keys unchanged. Homepage HTML 489757 -> 116922 bytes (-76%); local gzip 113094 -> 26120 bytes (-77%). RSC payload 440527 -> 102776 bytes (-77%). 375px Chromium passed all 11 card counts/resumes, locking/reload/keyboard focus, random persistence, cancel/confirmed restart, legacy alias migration and independent wrong-review completion/reset protection; zero page errors/overflow. Before/after home screenshots byte-identical; visual verdict100/pass. git diff --check passed. Local only; physical phone/network timing and deployment unverified.
+- Evidence: ignored tmp/mobile-resume/sizes.json, browser-results.json, before-375.png and after-375.png; existing legacy browser regression results in tmp/deduplicate/browser-results.json; visual verdict in .omx/state/compact-home-progress/ralph-progress.json. Local, uncommitted and unpublished. No implementation remains. This reduces download/processing overhead; it does not establish a specific physical-device resume time.
+
+### Publication authorization — mobile resume optimization — 2026-10-08
+
+User explicitly requested commit and push of the verified optimization. Timing measurements are not required. Publish to main and check the current Actions/Pages outcome.
+

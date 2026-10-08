@@ -28,3 +28,9 @@ export type QuestionSet = {
   questions: Question[];
   progressSources?: { id: string; questionIds: string[]; questionIdMap?: Record<string, string> }[];
 };
+
+// Progress needs IDs and answers, not the source text or image metadata.
+export type ProgressQuestionSet = Pick<QuestionSet, "id" | "progressSources"> & {
+  questions: Pick<Question, "id" | "answer">[];
+};
+export type QuestionSetSummary = ProgressQuestionSet & Pick<QuestionSet, "title">;
