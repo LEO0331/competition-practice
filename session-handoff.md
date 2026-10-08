@@ -2,7 +2,7 @@
 
 ## Current Objective
 
-None. Mobile resume loading optimization is implemented and verified locally. Follow the next user request.
+None. Mobile resume loading optimization is implemented, committed, pushed and verified on the public site. Follow the next user request.
 
 ## Current Product
 
@@ -10,9 +10,9 @@ None. Mobile resume loading optimization is implemented and verified locally. Fo
 
 ## Verification
 
-2026-10-08: Baseline npm run verify passed 86 tests; final verify passed data validation/lint/typecheck/89 tests/static build/789 export references. Compact card props retain IDs/answers/migration metadata; progress algorithms and storage keys unchanged. Homepage HTML 489757 -> 116922 bytes (-76%); local gzip 113094 -> 26120 bytes (-77%). RSC payload 440527 -> 102776 bytes (-77%). 375px Chromium passed all 11 card counts/resumes, locking/reload/keyboard focus, random persistence, cancel/confirmed restart, legacy alias migration and independent wrong-review completion/reset protection; zero page errors/overflow. Before/after home screenshots byte-identical; visual verdict100/pass. git diff --check passed. Local only; physical phone/network timing and deployment unverified.
+2026-10-08: Baseline npm run verify passed 86 tests; final verify passed data validation/lint/typecheck/89 tests/static build/789 export references. Compact card props retain IDs/answers/migration metadata; progress algorithms and storage keys unchanged. Homepage HTML 489757 -> 116922 bytes (-76%); local gzip 113094 -> 26120 bytes (-77%). RSC payload 440527 -> 102776 bytes (-77%). 375px Chromium passed all 11 card counts/resumes, locking/reload/keyboard focus, random persistence, cancel/confirmed restart, legacy alias migration and independent wrong-review completion/reset protection; zero page errors/overflow. Before/after home screenshots byte-identical; visual verdict100/pass. git diff --check passed. 2026-10-08: Code commit49855a6 pushed to main; GitHub Actions run37707558754 succeeded for build and Pages deployment. Public homepage measured116793UTF-8bytes. Live375px Chromium passed11cards, legacy sequential/random resume, locked answers/focus, independent wrong-review completion, cancel/reset protection, no overflow and zero page errors. User does not require exact device timing measurements.
 
-375px before/after screenshots are byte-identical. Evidence is in ignored tmp/mobile-resume/ and .omx/state/compact-home-progress/. Existing alias/review browser regression also passed. Physical phones, native zoom, mobile network timings and publication were not tested.
+375px before/after screenshots are byte-identical. Evidence is in ignored tmp/mobile-resume/ and .omx/state/compact-home-progress/. Existing alias/review browser regression also passed. Physical phones, native zoom and mobile network timings were not tested; user does not require exact timing measurements.
 
 ## Changed Files
 
@@ -20,4 +20,4 @@ src/app/page.tsx, src/components/QuestionSetCard.tsx, src/lib/questionSetSummary
 
 ## Remaining Work / Next Step
 
-None for implementation. User authorized commit and push on 2026-10-08. Publication is proceeding; check Actions/Pages for the pushed commit. No further timing measurements are required.
+None for implementation. Code commit49855a6 is pushed and deployed. Actions run37707558754 completed successfully; live mobile regression passed. No implementation or publication work remains. This documentation update records that result; no further timing measurements are required.

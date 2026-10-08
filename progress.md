@@ -192,3 +192,6 @@ User explicitly requested commit and push of the verified central homepage contr
 
 User explicitly requested commit and push of the verified optimization. Timing measurements are not required. Publish to main and check the current Actions/Pages outcome.
 
+### Publication verified — mobile resume optimization — 2026-10-08
+
+2026-10-08: Code commit49855a6 pushed to main; GitHub Actions run37707558754 succeeded for build and Pages deployment. Public homepage measured116793UTF-8bytes. Live375px Chromium passed11cards, legacy sequential/random resume, locked answers/focus, independent wrong-review completion, cancel/reset protection, no overflow and zero page errors. User does not require exact device timing measurements. Browser evidence: ignored tmp/deduplicate/live-results.json and live-375.png. No implementation or publication work remains.
