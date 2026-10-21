@@ -15,7 +15,7 @@ test('first set has precisely 60 source rows and deterministic IDs', () => {
   for (const q of set.questions) assert.equal(q.id, `114-jintounao-q${String(q.number).padStart(3,'0')}`);
 });
 test('lookup returns registered set or undefined', () => {
-  assert.equal(getQuestionSet('114-jintounao'), questionSets[0]);
+  assert.ok(questionSets.includes(getQuestionSet('114-jintounao')));
   assert.equal(getQuestionSet('missing'), undefined);
 });
 test('ordering does not mutate source', () => {
@@ -26,7 +26,7 @@ test('ordering does not mutate source', () => {
   assert.equal(set.questions[0], first);
 });
 test('validation rejects corrupted data, answers, images and provenance', () => {
-  const set = structuredClone(questionSets[0]);
+  const set = structuredClone(getQuestionSet('114-jintounao'));
   const q = set.questions[0];
   set.questions[1].id = q.id;
   q.number = 0; q.answer = 5; q.text = ''; q.choices = [{id:1,text:''}]; q.source.page = 0;

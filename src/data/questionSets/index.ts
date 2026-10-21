@@ -1,4 +1,5 @@
 import { jintounao } from "./114-jintounao.ts";
+import { guanlan115 } from "./115-guanlan.ts";
 import { taipei112 } from "./112-taipei-jintounao.ts";
 import { national112 } from "./112-national-jintounao.ts";
 import { national113Retained } from "./113-national-retained.ts";
@@ -15,7 +16,7 @@ import type { QuestionSet } from "../../types/question.ts";
 export const questionSets: QuestionSet[] = [jintounao, taipei112, national112, national113Retained, guanlan114,
   { ...summary112Complete, progressSources: [{ id: summary112.id, questionIds: summary112.questions.map((question) => question.id) }] },
   taipei113Combined, jintounao113Taipei,
-  citySupplied113, environmentKnowledge113Scanned, national114]
+  citySupplied113, environmentKnowledge113Scanned, national114, guanlan115]
   .sort((a, b) => Number(b.year) - Number(a.year));
 
 export const questionSetAliases: Record<string, string> = {

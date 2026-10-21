@@ -2,22 +2,22 @@
 
 ## Current Objective
 
-None. Mobile resume loading optimization is implemented, committed, pushed and verified on the public site. Follow the next user request.
+None. The supplied two-page 115 灌籃高手 scan has been added and verified locally.
 
 ## Current Product
 
-11 practice sets with657questions and48study pages. Homepage question cards now receive only set title, question IDs/answers and required migration metadata. Full question content remains on practice routes. Existing saved progress, scores, random sessions, legacy migration, review independence, restart confirmation and original-image preference preserved. No dependencies or UI changes.
-
-## Verification
-
-2026-10-08: Baseline npm run verify passed 86 tests; final verify passed data validation/lint/typecheck/89 tests/static build/789 export references. Compact card props retain IDs/answers/migration metadata; progress algorithms and storage keys unchanged. Homepage HTML 489757 -> 116922 bytes (-76%); local gzip 113094 -> 26120 bytes (-77%). RSC payload 440527 -> 102776 bytes (-77%). 375px Chromium passed all 11 card counts/resumes, locking/reload/keyboard focus, random persistence, cancel/confirmed restart, legacy alias migration and independent wrong-review completion/reset protection; zero page errors/overflow. Before/after home screenshots byte-identical; visual verdict100/pass. git diff --check passed. 2026-10-08: Code commit49855a6 pushed to main; GitHub Actions run37707558754 succeeded for build and Pages deployment. Public homepage measured116793UTF-8bytes. Live375px Chromium passed11cards, legacy sequential/random resume, locked answers/focus, independent wrong-review completion, cancel/reset protection, no overflow and zero page errors. User does not require exact device timing measurements.
-
-375px before/after screenshots are byte-identical. Evidence is in ignored tmp/mobile-resume/ and .omx/state/compact-home-progress/. Existing alias/review browser regression also passed. Physical phones, native zoom and mobile network timings were not tested; user does not require exact timing measurements.
+12 practice sets, 692 questions and 48 study pages. New `115-guanlan` is first by descending ROC year, with 30 main questions and 5 PK questions. Existing datasets and saved progress are unchanged. All new explanations are null because the source provides none.
 
 ## Changed Files
 
-src/app/page.tsx, src/components/QuestionSetCard.tsx, src/lib/questionSetSummary.ts, src/types/question.ts, src/lib/progress.ts, src/lib/review.ts, tests/home-progress.test.mjs, feature_list.json, progress.md, session-handoff.md.
+New question set, registry, source PDF/checksum manifest, upright source images and Q12 water-label crop; README, source-review index/detail, feature_list.json, progress.md, session-handoff.md; new 115-guanlan tests and four legacy test fixture/count updates. No dependency or application UI changes.
+
+## Verification
+
+2026-10-21: all 35 source rows visually transcribed and independently audited; Q26 option 2 corrected to「苯駢芘」. Baseline npm run verify passed 89 tests/789 refs. Final npm run verify passed validation/lint/typecheck/91 tests/build/838 exported asset references. git diff --check passed. Actual 375px Edge/Chromium exercised all 35 questions, 12 cards, 52px+ choices, keyboard outline, locking/reload/resume, cancel/confirmed restart, crop/original image preference and orientation, PK source label, completion and independent wrong-review; zero page errors/overflow. Screenshots/script are in ignored tmp/new-set/. Visual verdict pass persisted under .omx/state/115-guanlan/.
+
+Physical devices and native zoom untested. npm ci reported 5 high-severity findings in existing locked dependencies; no dependency changes made.
 
 ## Remaining Work / Next Step
 
-None for implementation. Code commit49855a6 is pushed and deployed. Actions run37707558754 completed successfully; live mobile regression passed. No implementation or publication work remains. This documentation update records that result; no further timing measurements are required.
+None for requested implementation. Changes are local/uncommitted and not deployed. Commit/push/publication was not requested in this session. Follow the next user request; if publication is requested, use Lore commit format and verify the remote deployment.

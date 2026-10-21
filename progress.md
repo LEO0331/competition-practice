@@ -195,3 +195,12 @@ User explicitly requested commit and push of the verified optimization. Timing m
 ### Publication verified — mobile resume optimization — 2026-10-08
 
 2026-10-08: Code commit49855a6 pushed to main; GitHub Actions run37707558754 succeeded for build and Pages deployment. Public homepage measured116793UTF-8bytes. Live375px Chromium passed11cards, legacy sequential/random resume, locked answers/focus, independent wrong-review completion, cancel/reset protection, no overflow and zero page errors. User does not require exact device timing measurements. Browser evidence: ignored tmp/deduplicate/live-results.json and live-375.png. No implementation or publication work remains.
+
+
+## 2026-10-21 — Add 115 年灌籃高手 scan
+
+- Added `src/data/questionSets/115-guanlan.ts` and registry entry: 30 main + 5 PK questions, printed keys and source labels retained, all explanations null. Two-page original PDF and separate SHA-256 inventory under `sources/scanned-practice/115灌籃高手/`; two upright images and exact Q12 mark crop preserved. Independent source review corrected Q26 option 2 to「苯駢芘」and found no further mismatches.
+- Updated README counts to 12 sets/692 questions, source-review index and detailed `docs/115-guanlan-source-review.md`. Existing six-scan manifest and existing data/storage untouched. Added source/count/answer-key tests; pinned legacy progress/review fixtures to their explicit set ID so newest-first ordering can include year 115. No runtime/UI simplification, new dependencies or application behavior changes.
+- Node 24.14.1; initial verify required `npm ci`. Sandbox install encountered EPERM; approved retry succeeded with locked dependencies unchanged. Baseline `npm run verify`: 89 tests/789 export refs. Final `npm run verify`: data validation, lint, typecheck, 91 tests, static build and 838 export refs passed. `git diff --check` passed.
+- Actual 375px Edge (Chromium) tested all 35 questions, 12 practice cards, correct text/PK provenance, 52px+ choices, keyboard focus outline, locking/reload/resume, cancel/confirmed restart, Q12 image, source preference/orientation, 34/35 completion and independent one-question wrong-review. Zero page errors/overflow. Screenshots and reproducible browser script in ignored `tmp/new-set/`; visual verdict pass in `.omx/state/115-guanlan/ralph-progress.json`.
+- Remaining risks: physical devices/native zoom not tested. npm ci reported 5 high-severity findings in existing locked dependencies; dependency remediation is outside dataset scope. Changes local/uncommitted; no push or deployment performed.

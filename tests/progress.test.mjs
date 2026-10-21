@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { questionSets } from '../src/data/questionSets/index.ts';
 import { createProgress, parseProgress, progressKey, answerQuestion, moveToQuestion, countCorrect, countAnswered, loadProgress, saveProgress } from '../src/lib/progress.ts';
-const set = questionSets[0];
+const set = questionSets.find(set => set.id === '114-jintounao');
 
 test('existing v1 data keeps answered counts, correct counts and position', () => {
   const raw={version:1,position:2,completed:false,answers:{[set.questions[0].id]:set.questions[0].answer,[set.questions[1].id]:1}};

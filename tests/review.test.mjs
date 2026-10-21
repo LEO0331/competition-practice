@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { questionSets } from '../src/data/questionSets/index.ts';
 import { createProgress, answerQuestion, moveToQuestion, countAnswered, countCorrect, saveProgress, loadProgress } from '../src/lib/progress.ts';
 import { incorrectQuestionIds, reviewQuestionSet, createReviewSession, parseReviewSession, reviewKey, loadReviewSession, saveReviewSession } from '../src/lib/review.ts';
-const set=questionSets[0];
+const set=questionSets.find(set => set.id === '114-jintounao');
 function completedAttempt(wrongNumbers=[]) {
   const p=createProgress(set);
   for (const q of set.questions) p.answers[q.id]=wrongNumbers.includes(q.number) ? q.answer % 4 + 1 : q.answer;
