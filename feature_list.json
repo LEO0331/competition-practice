@@ -295,6 +295,32 @@
         "Existing sets and progress unchanged; verify and mobile flow pass"
       ],
       "evidence": "2026-10-21: two scanned pages visually transcribed and independently audited; 35 printed answers, 30 main + 5 PK labels, water-mark crop, original PDF/SHA256/upright page images preserved. Baseline verify passed 89 tests/789 refs; final npm run verify passed validation/lint/typecheck/91 tests/build/838 export refs. Actual 375px Edge/Chromium exercised every row, locking/reload, focus outline, 52px+ targets, originals hidden before answer, upright source image, resume, cancel/confirmed restart, 34/35 completion and independent wrong-only review with zero overflow/page errors. Local uncommitted; no publication requested. Physical device/native zoom untested."
+    },
+    {
+      "id": "security-audit-2026-11-18",
+      "name": "Audit the current main and Pages deployment",
+      "description": "Review application exposure, dependencies and deployment permissions, and report changes compatible with direct pushes.",
+      "dependencies": [],
+      "status": "done",
+      "acceptance_criteria": [
+        "Audit the latest main and verify dependency alerts against the lockfile",
+        "Check public Pages and branch settings",
+        "Report prioritized fixes without modifying application code or publishing"
+      ],
+      "evidence": "Audited c0d61fd, including locked dependencies and the public Pages deployment. npm run verify passed with 91 tests and 838 export references. The two workflow findings are addressed in github-actions-deployment-hardening."
+    },
+    {
+      "id": "github-actions-deployment-hardening",
+      "name": "Limit Pages workflow permissions and pin Actions",
+      "description": "Address the two medium-risk findings from the security audit while preserving direct pushes and the existing Pages deployment.",
+      "dependencies": ["security-audit-2026-11-18"],
+      "status": "done",
+      "acceptance_criteria": [
+        "Only the deploy job has Pages write and OIDC permissions",
+        "All CI and deploy action references are pinned to the current upstream commit",
+        "Local verification and the renamed-prefix export check pass"
+      ],
+      "evidence": "Both workflow YAML files were parsed and compared with the prior configuration to verify that only action references and job permissions changed. All five SHAs matched their original upstream tags. npm run verify passed 91 tests and 838 export references, and the renamed-prefix static export passed 838 references."
     }
   ],
   "active_feature": null
